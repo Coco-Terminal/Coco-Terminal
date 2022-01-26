@@ -1,9 +1,13 @@
+/* eslint-disable prettier/prettier */
 import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components/macro'
-
+import "./css/worp.css"
 import BoxLoading from '../../components/BoxLoad'
 import ListBox from '../../components/ListBox'
 import { useFundsState } from '../../state/funds/hook'
+import LeftMenu from "../../components/compent/left/index"
+import Editingtwo from "../../components/compent/Editing/NTF-Trendings"
+
 
 const DashbordTitle = styled.p`
   margin: 0;
@@ -22,9 +26,29 @@ export default function Home() {
 
   return (
     <>
-      <ListBox title="DashBord">
-        <div></div>
-      </ListBox>
+    
+        <div className='worp'>
+             <ul>
+               <li>
+                 <LeftMenu />
+               </li>
+               <li>
+                 <div></div>
+                 <div></div>
+               
+               </li>
+               <li>
+                    <div>
+                       
+                    </div>
+                    <div>
+                     {/* <Editingtwo/> */}
+                     111111
+                    </div>
+               </li>
+             </ul>
+        </div>
+
     </>
   )
 }
