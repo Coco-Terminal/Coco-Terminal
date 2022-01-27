@@ -63,7 +63,7 @@ export default function Editingtwo() {
         </div>
         <div> View All </div>
       </div>
-      <hr> </hr>
+      {/* <hr> </hr> */}
       <TableContainer component={Paper}>
         <Table>
           <TableHead>

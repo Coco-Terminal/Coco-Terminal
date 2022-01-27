@@ -7,6 +7,7 @@ import ListBox from '../../components/ListBox'
 import { useFundsState } from '../../state/funds/hook'
 import LeftMenu from "../../components/compent/left/index"
 import Editingtwo from "../../components/compent/Editing/NTF-Trendings"
+import The_calenda from "../../components/compent/Data/The_calendar"
 
 
 const DashbordTitle = styled.p`
@@ -33,17 +34,19 @@ export default function Home() {
                  <LeftMenu />
                </li>
                <li>
-                 <div></div>
-                 <div></div>
-               
+                 <div>
+                 <The_calenda/>
+                 </div>
+                 <div>
+                   people
+                 </div>
                </li>
                <li>
                     <div>
                        
                     </div>
                     <div>
-                     {/* <Editingtwo/> */}
-                     111111
+                     <Editingtwo/> 
                     </div>
                </li>
              </ul>
