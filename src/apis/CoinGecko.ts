@@ -2,15 +2,17 @@ import axios from 'axios'
 
 import { CoinGeckoUrl } from '../constants/tokens'
 
-interface SimplePriceProps {
-  ids: string
-  vsCurrency?: string
-  include24hChange?: boolean
+interface DataForNftProps {
+  start: number
+  limit?: number
+  sort?: string
+  desc?: boolean
+  period?: number
 }
-
-export async function getSimplePrice({ ids, vsCurrency = 'usd', include24hChange = true }: SimplePriceProps) {
-  return await axios.get(`${CoinGeckoUrl}/simple/price`, {
-    params: { ids, vs_currencies: vsCurrency, include_24hr_change: include24hChange },
+// start:0,limit:10,ort:'volume',desc:true,period:1
+export async function getDataForNft(obj: DataForNftProps) {
+  return await axios.get('https://api.coinmarketcap.com/data-api/v3/nft/collections', {
+    params: obj,
   })
 }
 

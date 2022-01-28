@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import './editing.css'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import AutoStoriesIcon from '@mui/icons-material/AutoStories'
+import { getDataForNft } from 'apis/CoinGecko'
 
 function createData(
   name: string,
@@ -21,6 +22,51 @@ function createData(
   return { name, string, fat, carbs, protein, text, text2 }
 }
 
+interface ListDataItem {
+  allTime: { marketCap: number; volume: number; sales: number; averagePrice: number }
+  assets: number
+  blockchain: string
+  categories: string[]
+  dataSource: string
+  floorPrice: number
+  floorPriceToken: string
+  logo: string
+  marketCap: number
+  name: string
+  netWorth: number
+  oneDay: {
+    marketCap: number
+    volume: number
+    volumeChangePercentage: number
+    sales: number
+    salesChangePercentage: number
+  }
+  ownerAssetsPercentage: number
+  owners: number
+  popular: boolean
+  rank: number
+  sales7d: number
+  salesAT: number
+  sevenDay: {
+    marketCap: number
+    volume: number
+    volumeChangePercentage: number
+    sales: number
+    salesChangePercentage: number
+  }
+  slug: string
+  thirtyDay: {
+    marketCap: number
+    volume: number
+    volumeChangePercentage: number
+    sales: number
+    salesChangePercentage: number
+  }
+  tradersAT: number
+  volume7d: number
+  volumeAT: number
+  website: string
+}
 interface ImgTextItem {
   key: string | number
   age: ReactNode
@@ -43,19 +89,22 @@ const imgText = [
 ]
 
 export default function Editingtwo() {
-  const Myrender = (imgText: ImgTextItem[]) => {
-    return imgText.map((item) => {
-      return (
-        <p key={item.key}>
-          <span>{item.age} </span>
-          <span> {item.text} </span>
-        </p>
-      )
+  const [listData, setListData] = useState([])
+
+  // useEffect(() => {
+  //
+  //
+  //
+  //   }, {})
+  // })
+  useEffect(() => {
+    getDataForNft({ start: 0, limit: 5, sort: 'volume', desc: true, period: 1 }).then((res) => {
+      console.log(res.data.data.collections)
+      setListData(res.data.data.collections)
     })
-  }
+  }, [])
   return (
     <div className="editing">
-      {' '}
       <div>
         <div>
           <h1>NTF Trendings </h1>
@@ -68,7 +117,7 @@ export default function Editingtwo() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>collectron </TableCell>
+              <TableCell>name </TableCell>
               <TableCell align="right"> Volume </TableCell>
               <TableCell align="right"> 24h % </TableCell>
               <TableCell align="right"> 7d % </TableCell>
@@ -78,26 +127,50 @@ export default function Editingtwo() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name} style={{ marginTop: '20px' }}>
-                <TableCell component="th" scope="row" className="Arrtext">
-                  {row.name}
-                  {Myrender(imgText)}
-                </TableCell>
-                <TableCell align="right"> {row.string} </TableCell>
-                <TableCell align="right" style={{ color: 'red' }}>
-                  {' '}
-                  {row.fat}{' '}
-                </TableCell>
-                <TableCell align="right" style={{ color: '#22D03E' }}>
-                  {' '}
-                  {row.carbs}{' '}
-                </TableCell>
-                <TableCell align="right"> {row.protein} </TableCell>
-                <TableCell align="right"> {row.text} </TableCell>
-                <TableCell align="right"> {row.text2} </TableCell>
-              </TableRow>
-            ))}
+            {listData.length > 0 &&
+              listData.map((row: ListDataItem) => (
+                <TableRow key={row.slug} style={{ marginTop: '20px' }}>
+                  <TableCell component="th" scope="row" className="Arrtext">
+                    <img className="listIteamImg" src={row.logo} alt="" srcSet="" />
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">
+                    {' '}
+                    {row.oneDay.volume.toFixed(2)}
+                    {row.floorPriceToken}
+                  </TableCell>
+                  <TableCell
+                    align="right"
+                    style={
+                      row.oneDay.volumeChangePercentage == 0
+                        ? { color: '#000' }
+                        : row.oneDay.volumeChangePercentage < 0
+                        ? { color: '#22D03E' }
+                        : { color: 'red' }
+                    }
+                  >
+                    {row.oneDay.volumeChangePercentage.toFixed(2)}%
+                  </TableCell>
+                  <TableCell
+                    align="right"
+                    style={
+                      row.sevenDay.volumeChangePercentage == 0
+                        ? { color: '#000' }
+                        : row.sevenDay.volumeChangePercentage < 0
+                        ? { color: '#22D03E' }
+                        : { color: 'red' }
+                    }
+                  >
+                    {row.sevenDay.volumeChangePercentage.toFixed(2)}%
+                  </TableCell>
+                  <TableCell align="right">
+                    {' '}
+                    {row.floorPrice} {row.floorPriceToken}{' '}
+                  </TableCell>
+                  <TableCell align="right"> {row.owners} </TableCell>
+                  <TableCell align="right"> {row.owners} </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

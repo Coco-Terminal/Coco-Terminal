@@ -1,7 +1,6 @@
 .editing {
     width: 1206px;
     height: 468px;
-    border: 2px solid black;
 }
 
 .editing>div:nth-child(1) {
@@ -115,4 +114,10 @@ margin-top:15px;
     align-items: center;
     margin-top: -25px;
     color: #452F02;
+}
+.listIteamImg{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
