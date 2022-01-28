@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
 
-// import Logo from '../../assets/images/logo.png'
+import Logo from '../../assets/images/logo.png'
 import { useViewport } from '../../components/ViewportProvider'
 import Wallet from '../../components/Wallet'
 import { network } from '../../connectors'
@@ -158,7 +158,9 @@ export default function Header() {
     >
       <Content>
         <div>
-          <AddressLink href="#/">{/* <LogoImg src={Logo} alt="logo" /> */} NFTGO</AddressLink>
+          <AddressLink href="#/">
+            <LogoImg src={Logo} alt="logo" />
+          </AddressLink>
         </div>
 
         {menuBtnIsShow ? (
@@ -179,20 +181,20 @@ export default function Header() {
         )}
         {contentIsShow ? (
           <Menus>
-            <AddressLink href="#/">首页</AddressLink>
+            <AddressLink href="#/">HOME</AddressLink>
             {/*<AddressLink href="#/fund">fund</AddressLink>*/}
             {/* <ChangeLanguage /> */}
             {/* <Wallet /> */}
             {chainId && (
               <NetworkBox>
                 {/* <NetworkLogo src={CHAIN_INFO[chainId].logoUrl ? CHAIN_INFO[chainId]?.logoUrl : '网络错误'} /> */}
-                <NetworkLabel>{CHAIN_INFO[chainId]?.label ? CHAIN_INFO[chainId]?.label : '网络错误'}</NetworkLabel>
+                {/* <NetworkLabel>{CHAIN_INFO[chainId]?.label ? CHAIN_INFO[chainId]?.label : 'NETWORK ERR'}</NetworkLabel> */}
               </NetworkBox>
             )}
 
             {/* {chainId && <NetWork>{CHAIN_INFO[chainId]?.label ? CHAIN_INFO[chainId]?.label : '网络错误'}</NetWork>} */}
 
-            <Web3Status />
+            {/* <Web3Status /> */}
           </Menus>
         ) : (
           <></>

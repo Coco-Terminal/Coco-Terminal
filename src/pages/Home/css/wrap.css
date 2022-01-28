@@ -15,7 +15,7 @@
 }
 .wrap>ul>li:nth-child(1){
     width: 130px;
-    height:1400px;
+    /* height:1400px; */
     border: 1px solid white;
 }
 .wrap>ul>li:nth-child(2){
