@@ -7,8 +7,9 @@ import { useEagerConnect, useInactiveListener } from './utils/hook'
 import './App.css';
 import Home from "./page/Home/index"
 import ConnectChain from './compoment/walletButtoon';
-import Editingtwo from './page/page_body/table/NTF-Trendings';
+// import Editingtwo from './page/page_body/table/NTF-Trendings';
 import React from 'react';
+import {HashRouter,Switch,Route} from 'react-router-dom'
 
 function getLibrary(provider: ExternalProvider | JsonRpcFetchFunc) {
   const library = new Web3Provider(provider)
