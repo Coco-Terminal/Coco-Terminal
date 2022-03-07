@@ -7,20 +7,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
-import AutoStoriesIcon from '@mui/icons-material/AutoStories'
-import { getDataForNft } from '../../../api/CoinGecko'
-import ToggleButton from '@mui/material/ToggleButton'
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import TableFooter from '@mui/material/TableFooter'
-import { TablePagination } from '@material-ui/core'
 
-import { useTheme } from '@mui/material/styles'
-import Box from '@mui/material/Box'
-import IconButton from '@mui/material/IconButton'
-import FirstPageIcon from '@mui/icons-material/FirstPage'
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
-import LastPageIcon from '@mui/icons-material/LastPage'
 
 
 // function createData(
