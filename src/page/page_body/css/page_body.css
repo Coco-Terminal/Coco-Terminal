@@ -1,0 +1,31 @@
+.page_body {
+  width: 75rem;
+  height: 100%;
+}
+.page_body h2 {
+  margin-top: 2rem;
+  width: 100%;
+  height: 5rem;
+  line-height: 5rem;
+}
+.page_body .page_button {
+  width: 5rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.page_body .page_button span {
+  display: inline-block;
+  width: 3rem;
+  padding: 0px ;
+  line-height: 2rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.page_body .page_button button {
+  background-color: #3f3a3a;
+  font-size: 13px !important;
+}
+.page_body .page_button .button2 {
+  margin-left: 3rem;
+}

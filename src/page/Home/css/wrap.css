@@ -1,0 +1,8 @@
+.wrap {
+  margin: 0rem;
+  padding: 0rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
