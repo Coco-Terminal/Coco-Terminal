@@ -61,9 +61,9 @@ const  menuList = [
   }
 ]
 
-function SideMenu(props) {
+function SideMenu(props:any) {
 
-  const renderMenu = (menuList)=>{
+  const renderMenu = (menuList: any[])=>{
     return menuList.map(item=>{
       if(item.children){
         return <SubMenu key={item.key} icon={item.icon} title={item.title}>
