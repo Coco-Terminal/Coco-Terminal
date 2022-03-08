@@ -1,28 +1,27 @@
-/* .sizemenu{
-    background-color: rgb(232, 235, 238);
-    color: black !important;
+.sizemenu {
+  background-color: rgb(232, 235, 238);
+  color: black !important;
 }
 .sizemenu div {
-    background-color:white;
-    color: black !important;
+  background-color: white;
+  color: black !important;
 }
-.sizemenu li{
-    background-color: white !important;
-    color: black !important;
-} */
-.logo{
-    line-height: 32px;
-    color:white;
-    /* background-color: rgba(255, 255, 255,0.3); */
-    font-size: 18px;
-    /* margin: 10px; */
-    text-align: center;
-    margin-top: 1.5rem;
-
+.sizemenu li {
+  background-color: white !important;
+  color: black !important;
 }
-.sizdmenu{
-    width: 100%;
-    text-align: center;
-    color: white;
-    margin-top: 0.3rem;
+.logo {
+  line-height: 32px;
+  color: white;
+  /* background-color: rgba(255, 255, 255,0.3); */
+  font-size: 18px;
+  /* margin: 10px; */
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.sizdmenu {
+  width: 100%;
+  text-align: center;
+  color: #000;
+  margin-top: 0.3rem;
 }

@@ -3,6 +3,31 @@
   margin: 0px;
   text-align: center;
 }
+.home_box .collectionBox {
+  display: flex;
+  align-items: center;
+}
+.home_box .collectionBox div {
+  margin-left: 10px;
+}
+.home_box .collectionBox .logoImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.home_box p {
+  margin-bottom: 0;
+}
+.home_box .percentage {
+  font-size: 10px;
+  color: gray;
+}
+.home_box .fontRed {
+  color: red;
+}
+.home_box .fontGreen {
+  color: green;
+}
 .home_box .home_button {
   width: 22rem;
   margin-bottom: 1rem;
