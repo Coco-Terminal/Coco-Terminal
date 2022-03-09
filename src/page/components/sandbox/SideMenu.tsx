@@ -47,17 +47,17 @@ const menuList = [
   //       },
   //     ],
   //   },
-  //   {
-  //     key: '/right-manage',
-  //     title: 'Socal',
+    {
+      key: '/right-manage',
+      title: 'Socal',
 
-  //     children: [
-  //       {
-  //         key: '/right-manage/role/list',
-  //         title: ' Forum',
-  //       },
-  //     ],
-  //   },
+      children: [
+        {
+          key: '/right-manage/role/list',
+          title: ' Forum',
+        },
+      ],
+    },
 ]
 
 function SideMenu(props: any) {
