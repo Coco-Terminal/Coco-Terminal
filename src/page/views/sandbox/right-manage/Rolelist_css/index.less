@@ -1,3 +1,21 @@
+
+.RoleList ::-webkit-scrollbar {
+    width:5px;
+    }
+
+    .RoleList  ::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+    border-radius:10px;
+    }
+ 
+    .RoleList  ::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background:rgba(0,0,0,0.1);
+    -webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+    }
+    .RoleList  ::-webkit-scrollbar-thumb:window-inactive {
+    background:rgba(0, 60, 255, 0.4);
+    }
 .RoleList{
     height: 100%;
     margin: 0px;
@@ -117,7 +135,9 @@
                   height: 25rem;
                  background-color: white;
                 //  border-bottom: 0.1rem solid black;
-                 overflow-y:scroll;
+                 overflow-y:auto;
+                
+                }
              
                  
                  h2{
@@ -217,7 +237,6 @@
               }
           }
       }
-}
 .Related_Nft{
     margin-top: 1rem;
     width: 100%;

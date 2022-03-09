@@ -1,3 +1,18 @@
+.RoleList ::-webkit-scrollbar {
+  width: 5px;
+}
+.RoleList ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.RoleList ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5);
+}
+.RoleList ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 60, 255, 0.4);
+}
 .RoleList {
   height: 100%;
   margin: 0px;
@@ -112,23 +127,23 @@
 .RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments {
   height: 25rem;
   background-color: white;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments h2 {
+.RoleList .RoleList_one .RoleList_one_lest h2 {
   color: rgba(88, 87, 87, 0.8);
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments .RoleList_one_lest_username {
+.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_username {
   width: 100%;
   height: 14rem;
   margin-top: 1rem;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments .RoleList_one_lest_username .RoleList_username_icon {
+.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_username .RoleList_username_icon {
   width: 20rem;
   height: 3rem;
   display: flex;
   flex-wrap: nowrap;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments .RoleList_one_lest_username .RoleList_username_icon span {
+.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_username .RoleList_username_icon span {
   display: inline-block;
   width: 2.5rem;
   height: 2.5rem;
@@ -139,7 +154,7 @@
   margin-left: 1rem;
   line-height: 2.5rem;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments .RoleList_one_lest_username .RoleList_username_icon p {
+.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_username .RoleList_username_icon p {
   height: 2.5rem;
   margin-top: 0.4rem;
   margin-left: 1rem;
@@ -149,7 +164,7 @@
   width: 10rem;
   border: 0px solid black;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments .RoleList_one_lest_username p {
+.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_username p {
   border: 0px solid black;
   width: 85%;
   height: 8rem;
@@ -158,14 +173,14 @@
   font-weight: normal;
   margin-top: 0.5rem;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_comments .RoleList_one_lest_username span {
+.RoleList .RoleList_one .RoleList_one_lest .RoleList_one_lest_username span {
   display: inline-block;
   width: 95%;
   height: 1rem;
   text-align: right;
   margin-top: -1rem;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_comment {
+.RoleList .RoleList_one .RoleList_comment {
   margin-top: 1rem;
   width: 100%;
   height: 12rem;
@@ -173,21 +188,21 @@
   border-top: 0.1rem solid black;
   background-color: white;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_comment div {
+.RoleList .RoleList_one .RoleList_comment div {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
   height: 3rem;
   margin-bottom: 1rem;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_comment div span {
+.RoleList .RoleList_one .RoleList_comment div span {
   display: inline-block;
   width: 3rem;
   height: 3rem;
   background-color: #353333;
   border-radius: 50%;
 }
-.RoleList .RoleList_one .RoleList_one_lest .RoleList_comment div p {
+.RoleList .RoleList_one .RoleList_comment div p {
   width: 5rem;
   height: 3rem;
   border: 0px solid brown;
