@@ -18,35 +18,35 @@ const menuList = [
     key: '/home',
     title: 'NFT',
     children: [
-      //   {
-      //     key: '/home/Watchlist',
-      //     title: 'Watchlist',
-      //   },
-      //   {
-      //     key: '/home/Caledar',
-      //     title: 'Caledar',
-      //   },
+        // {
+        //   key: '/Watchlist',
+        //   title: 'Watchlist',
+        // },
+        // {
+        //   key: '/Caledar',
+        //   title: 'Caledar',
+        // },
       {
         key: '/home/Trende',
         title: 'Trende',
       },
     ],
   },
-  //   {
-  //     key: '/user-manage',
-  //     title: 'Dashboard',
+    // {
+    //   key: '/user-manage',
+    //   title: 'Dashboard',
 
-  //     children: [
-  //       {
-  //         key: '/user-manage/list',
-  //         title: 'MY wallet',
-  //       },
-  //       {
-  //         key: '/user-manage/Token',
-  //         title: 'Token',
-  //       },
-  //     ],
-  //   },
+    //   children: [
+    //     {
+    //       key: '/user-manage/list',
+    //       title: 'MY wallet',
+    //     },
+    //     {
+    //       key: '/user-manage/Token',
+    //       title: 'Token',
+    //     },
+    //   ],
+    // },
     {
       key: '/right-manage',
       title: 'Socal',

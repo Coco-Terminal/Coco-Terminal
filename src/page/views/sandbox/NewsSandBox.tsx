@@ -7,7 +7,8 @@ import Nopermission from './nopermission/Nopermission'
 import RightList from './right-manage/RightList'
 import RoleList from './right-manage/RoleList'
 import UserList from './user-manage/UserList'
-import Watchlist from './home_Watchlist/Watchlist/Watchlist'
+import Wactlist from './right-manage/Wactlist'
+import Caledar   from './right-manage/Caledar'
 
 //css
 import './NewsSandBox.css'
@@ -33,6 +34,8 @@ export default function NewsSandBox() {
                 >
                     <Switch>
                         <Route path="/home" component={Home} />
+                        <Route path ='/Watchlist' component={Wactlist}/>
+                        <Route path='/Caledar' component ={Caledar}/>
                         <Route path="/user-manage/list" component={UserList} />
                         <Route path="/right-manage/role/list" component={RoleList} />
                         <Redirect from="/" to="/home" exact />
