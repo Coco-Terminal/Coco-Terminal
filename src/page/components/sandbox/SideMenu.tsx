@@ -22,10 +22,10 @@ const menuList = [
         //   key: '/Watchlist',
         //   title: 'Watchlist',
         // },
-        // {
-        //   key: '/Caledar',
-        //   title: 'Caledar',
-        // },
+        {
+          key: '/Caledar',
+          title: 'Caledar',
+        },
       {
         key: '/home/Trende',
         title: 'Trende',
