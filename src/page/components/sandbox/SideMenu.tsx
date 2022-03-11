@@ -92,7 +92,7 @@ function SideMenu(props: any) {
   return (
     <>
     <Sider trigger={null} collapsible collapsed={false} className="sizemenu">
-    <div  style={{width:"5rem " ,marginTop:'1rem'}}>
+    <div  style={{width:"4rem " ,marginTop:'1rem',marginBottom:'2rem' ,marginLeft:'1rem'}}>
         <img src={logoImg} alt="" style={{width:"100% " ,}}/>
       </div>
       {account ? (
