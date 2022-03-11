@@ -14,6 +14,7 @@ import ConnectChain from './compoment/walletButtoon'
 // import Editingtwo from './page/page_body/table/NTF-Trendings';
 import React from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
+import Layouts from './compoment/layout'
 
 function getLibrary(provider: ExternalProvider | JsonRpcFetchFunc) {
   const library = new Web3Provider(provider)
@@ -21,26 +22,15 @@ function getLibrary(provider: ExternalProvider | JsonRpcFetchFunc) {
   return library
 }
 
-function ChainId() {
-  const { chainId, library } = useWeb3React()
-
-  return (
-    <div className="ChainIdWrapper">
-      <span>Chain Id</span>
-      <span role="img" aria-label="chain">
-        ⛓
-      </span>
-      <span className="ChainIdText">{chainId ?? 'Not Connected'}</span>
-    </div>
-  )
-}
-
 function App() {
   const triedEager = useEagerConnect()
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Home />
+      <Layouts>
+        <Home></Home>
+      </Layouts>
+
       {/* <Editingtwo></Editingtwo> */}
       {/* <ConnectChain triedEager={triedEager} /> */}
     </Web3ReactProvider>

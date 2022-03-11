@@ -1,0 +1,80 @@
+.sizemenu {
+  background-color: rgb(232, 235, 238);
+  color: black !important;
+}
+.sizemenu div {
+  background-color: white;
+  color: black !important;
+}
+.sizemenu li {
+  background-color: white !important;
+  color: black !important;
+}
+.logo {
+  line-height: 32px;
+  color: white;
+  /* background-color: rgba(255, 255, 255,0.3); */
+  font-size: 18px;
+  /* margin: 10px; */
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.sizdmenu {
+  width: 100%;
+  text-align: center;
+  color: #000;
+  margin-top: 0.3rem;
+}
+.sizdmenu_div {
+  display: block;
+  width: 100%;
+  height: 12rem !important;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+.sizdmenu_div_one {
+  background: linear-gradient(
+    211.92deg,
+    #eee3ee 8.36%,
+    #f8f7f8 28.74%,
+    #cca9f7 72.89%
+  ) !important;
+  width: 80%;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sizdmenu_div_one > span {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 2.2rem;
+  background: linear-gradient(
+    211.92deg,
+    #5c085c 8.36%,
+    #d23de6 28.74%,
+    #934de7 72.89%
+  );
+  margin-top: -1rem;
+  border-radius: 50%;
+}
+.sizdmenu_div_one > h1 {
+  width: 100%;
+  height: 3rem;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: bold;
+}
+.sizdmenubutton {
+  background-color: rgb(130, 85, 212);
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
