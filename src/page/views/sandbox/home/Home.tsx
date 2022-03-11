@@ -25,7 +25,12 @@ interface Params {
   desc: boolean
   period: number
 }
-
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
 export default function Home() {
   const [listData, setListData] = useState([])
   const [page, setPage] = useState(0)
@@ -46,6 +51,7 @@ export default function Home() {
     {
       title: 'COLLECTION',
       dataIndex: 'name',
+      
       render: (value: any, record: any) => {
         return (
           <div className="collectionBox">
@@ -305,6 +311,7 @@ export default function Home() {
     console.log('params', pagination, filters, sorter, extra)
   }
   const menu = <></>
+   
   return (
     <div className="home_box">
       <h2>Trending Collections</h2>
@@ -337,6 +344,7 @@ export default function Home() {
         </div>
       </div>
       <div>
+   
         <Table
           onChange={onChange}
           columns={columns}

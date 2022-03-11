@@ -142,7 +142,8 @@ export default function Nopermission() {
               <div className='NFT_page_div_date'>
                  <Calendar
                   fullscreen={false} 
-                  onPanelChange={onPanelChange}
+                  
+                  // onPanelChange={onPanelChange}
                   
                   />
               </div>

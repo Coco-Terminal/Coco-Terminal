@@ -28,7 +28,7 @@ export default function NewsSandBox() {
                     className="site-layout-background"
                     style={{
                         margin: '24px 16px',
-                        padding: 0,
+                        padding: '0',
                         minHeight: 280,
                     }}
                 >
