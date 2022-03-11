@@ -10,6 +10,7 @@ import { UserOutlined } from '@ant-design/icons'
 import { useEagerConnect } from '../../../utils/hook'
 import { useWeb3React } from '@web3-react/core'
 import ConnectChain from '../../../compoment/walletButtoon'
+import logoImg from '../../../assets/logo.png'
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -91,6 +92,9 @@ function SideMenu(props: any) {
   return (
     <>
     <Sider trigger={null} collapsible collapsed={false} className="sizemenu">
+    <div  style={{width:"5rem " ,marginTop:'1rem'}}>
+        <img src={logoImg} alt="" style={{width:"100% " ,}}/>
+      </div>
       {account ? (
         <div>
           <div className="logo">

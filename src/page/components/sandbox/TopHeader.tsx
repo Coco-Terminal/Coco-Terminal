@@ -8,11 +8,14 @@ import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Menu, Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { Badge, Switch, Divider } from 'antd';
+import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
 
 import {
   CopyOutlined,
   MenuOutlined,
   ThunderboltOutlined,
+  BellOutlined 
   
 } from "@ant-design/icons";
 import logoImg from "../../../assets/logo.png";
@@ -42,11 +45,10 @@ export default function TopHeader() {
       <Menu.Item key="3">3rd menu item</Menu.Item>
     </Menu>
   );
+
   return (
     <div className="Topherder">
-      <div className="herder_loge">
-        <img src={logoImg} alt="" />
-      </div>
+    
       <div className="herder_input">
         <Input.Group compact style={{ borderRadius: "0.5rem" }}>
           <Input.Search allowClear style={{ width: "100%" }} />
@@ -89,7 +91,9 @@ export default function TopHeader() {
        </div>
       </div>
       <div className="herder_icon">
-        <BellFilled  />
+      <Badge dot showZero>
+          < BellOutlined  shape="square" sizes="large" />
+       </Badge>
       </div>
     </div>
   );
