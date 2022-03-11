@@ -1,9 +1,11 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
 import './index.css'
-import { withRouter } from 'react-router-dom'
-import { Avatar } from 'antd'
 
+import { withRouter } from 'react-router-dom'
+import { Button } from 'antd';
+import { Avatar } from 'antd'
+import {ArrowUpOutlined} from '@ant-design/icons'
 import { UserOutlined } from '@ant-design/icons'
 import { useEagerConnect } from '../../../utils/hook'
 import { useWeb3React } from '@web3-react/core'
@@ -87,6 +89,7 @@ function SideMenu(props: any) {
     })
   }
   return (
+    <>
     <Sider trigger={null} collapsible collapsed={false} className="sizemenu">
       {account ? (
         <div>
@@ -106,7 +109,23 @@ function SideMenu(props: any) {
       <Menu theme="light" mode="inline" defaultSelectedKeys={['3']}>
         {renderMenu(menuList)}
       </Menu>
+
+      <div className='sizdmenu_div'>
+          <div className='sizdmenu_div_one' >
+                 <span>
+                    <ArrowUpOutlined />
+                 </span>
+                 <h1>
+                   Get Premlum Now!
+                 </h1>
+                 <Button 
+                  className='sizdmenubutton'
+                 >UFORACK</Button>
+          </div>
+      </div>
     </Sider>
+  
+    </>
   )
 }
 export default withRouter(SideMenu)

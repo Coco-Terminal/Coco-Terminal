@@ -3,7 +3,7 @@
   height: 3rem;
   display: flex;
   flex-wrap: nowrap;
-  background-color: #91cdf0;
+  background-color: white;
 }
 .Topherder .herder_loge {
   width: 3rem;
@@ -24,9 +24,7 @@
   height: 3rem;
   margin-top: 0.5rem;
   margin-left: 2rem;
-}
-.Topherder .herder_div {
-  width: 50rem;
+  border-radius: 0.5rem;
 }
 .Topherder .herder_button {
   width: 14rem;
@@ -34,11 +32,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 1rem;
 }
 .Topherder .herder_button button {
   height: 2.5re;
-  background-color: #817d7d;
+  background: linear-gradient(211.92deg, #f0b9f0 8.36%, #cf73cf 28.74%, #8762b4 52.89%) !important;
   color: white;
+  border-radius: 0.2rem;
 }
 .Topherder .herder_icon {
   width: 3rem;
@@ -54,4 +54,68 @@
 .Topherder .herder_icon svg {
   width: 1.8rem;
   height: 1.8rem;
+}
+.Topherder .herder_waller {
+  width: 37rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Topherder .herder_waller .herder_waller_box {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.Topherder .herder_waller .herder_waller_box p {
+  width: 5rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #803d8d;
+}
+.Topherder .herder_waller_fee {
+  width: 10rem;
+  height: 3rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.Topherder .herder_waller_fee .herder_waller_fee_span {
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: gainsboro;
+  border: 0.1rem solid #a00d0d;
+}
+.Topherder .herder_waller_fee .herder_waller_fee_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Topherder .herder_waller_fee .herder_waller_fee_div div {
+  width: 100%;
+  height: 1.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  line-height: 1.5rem;
+}
+.Topherder .herder_waller_fee .herder_waller_fee_div div p {
+  width: 3rem;
+  overflow: hidden;
+  font-size: 0.1rem;
+  line-height: 1.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: black;
+  text-align: left;
+}
+.Topherder .herder_waller_fee .herder_waller_fee_div div svg {
+  margin-top: 0.2rem;
 }
