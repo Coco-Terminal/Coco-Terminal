@@ -1,7 +1,7 @@
 //HashRouter  (./router/index.tsx)
 import React, { Component } from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
-import Caledar from '../caledar'
+import Calendar from '../calendar'
 import Trende from '../trende'
 import Login from '../views/login/Login'
 
@@ -12,7 +12,7 @@ export default class RouteConfig extends Component {
         <Switch>
           <Route path="/" exact component={Login}></Route>
           <Route path="/trende" exact component={Trende}></Route>
-          <Route path="/caledar" exact component={Caledar}></Route>
+          <Route path="/calendar" exact component={Calendar}></Route>
         </Switch>
       </HashRouter>
     )

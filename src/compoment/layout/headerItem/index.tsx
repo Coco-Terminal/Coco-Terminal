@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react/jsx-no-undef */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.css'
 import { BellFilled } from '@ant-design/icons'
 import { Input, Button } from 'antd'
@@ -9,6 +9,9 @@ import { UserOutlined } from '@ant-design/icons'
 import { Menu, Dropdown } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { Badge, Switch, Divider } from 'antd'
+import { ethers } from 'ethers'
+// import { web3currentProvider } from '@web3-react/core'
+import BigNumber from 'bignumber.js'
 
 import {
   CopyOutlined,
@@ -16,6 +19,9 @@ import {
   ThunderboltOutlined,
   BellOutlined,
 } from '@ant-design/icons'
+import { useEagerConnect } from '../../../utils/hook'
+import { useWeb3React } from '@web3-react/core'
+import ConnectChain from '../../walletButtoon'
 export default function HeaderItem() {
   const text = [
     {
@@ -42,7 +48,23 @@ export default function HeaderItem() {
       <Menu.Item key="3">3rd menu item</Menu.Item>
     </Menu>
   )
+  const [gasPrice, setGasPrice] = useState<string>('0')
 
+  const triedEager = useEagerConnect()
+  const { chainId, library, account } = useWeb3React()
+  let provider = ethers.getDefaultProvider('homestead')
+
+  //   const { provider } = library
+  //   useEffect()
+  useEffect(() => {
+    setInterval(() => {
+      provider.getGasPrice().then((res) => {
+        console.log(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
+
+        setGasPrice(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
+      })
+    }, 10000)
+  }, [])
   return (
     <div className="Topherder">
       <div className="herder_input">
@@ -58,33 +80,35 @@ export default function HeaderItem() {
       </div>
       <div className="herder_waller">
         <div className="herder_waller_box">
-          {text.map((itme) => {
+          {/* {text.map((itme) => {
             return (
               <p key={itme.key}>
                 <span>{itme.icon}</span> {itme.text}
               </p>
             )
-          })}
+          })} */}
+          <div className="gas_price">
+            <ThunderboltOutlined />
+            <p>{gasPrice}</p>
+          </div>
         </div>
       </div>
       <div className="herder_waller_fee">
-        <span className="herder_waller_fee_span">
-          <Avatar size={44} icon={<UserOutlined />} />
-        </span>
         <div className="herder_waller_fee_div">
-          <Dropdown overlay={menu} trigger={['click']}>
-            <a
-              className="ant-dropdown-link"
-              style={{ color: 'black', display: 'block' }}
-              onClick={(e) => e.preventDefault()}
-            >
-              Vitalik Buterin <DownOutlined />
-            </a>
-          </Dropdown>
-          <div>
-            <p>{add}</p>
-            <CopyOutlined />
-          </div>
+          {account ? (
+            <div className="wallet_info">
+              <div className="wallet_avatar">
+                <Avatar size={44} icon={<UserOutlined />} />
+              </div>
+              <p className="wallet_account">
+                {account.substr(0, 4) +
+                  '***' +
+                  account.substr(account.length - 4, account.length - 1)}
+              </p>
+            </div>
+          ) : (
+            <ConnectChain triedEager={triedEager} />
+          )}
         </div>
       </div>
       <div className="herder_icon">

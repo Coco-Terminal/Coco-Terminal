@@ -17,8 +17,8 @@ const menuList = [
     title: 'NFT',
     children: [
       {
-        key: '/caledar',
-        title: 'Caledar',
+        key: '/calendar',
+        title: 'Calendar',
       },
       {
         key: '/trende',
@@ -27,17 +27,17 @@ const menuList = [
     ],
   },
 
-  {
-    key: '/right-manage',
-    title: 'Socal',
+  //   {
+  //     key: '/right-manage',
+  //     title: 'Socal',
 
-    children: [
-      {
-        key: '/right-manage/role/list',
-        title: ' Forum',
-      },
-    ],
-  },
+  //     children: [
+  //       {
+  //         key: '/right-manage/role/list',
+  //         title: ' Forum',
+  //       },
+  //     ],
+  //   },
 ]
 
 export default function SideMenu(props: any) {

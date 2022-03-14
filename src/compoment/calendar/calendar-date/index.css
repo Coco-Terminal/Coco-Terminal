@@ -3,13 +3,12 @@
   margin-top: 3rem;
 }
 .NFT_page h1 {
-  margin-left: 1rem ;
+  margin-left: 1rem;
   font-size: 1.2rem;
   font-weight: 500;
 }
 .NFT_page .NFT_page_div {
   width: 73.5rem;
-  height: 20rem;
   background-color: white;
   display: flex;
   flex-wrap: nowrap;
@@ -35,7 +34,7 @@
   justify-content: left;
 }
 .NFT_page .NFT_page_div_date .NFT_page_div_button button {
-  background: #9760FF;
+  background: #9760ff;
   border-radius: 5px;
   color: white;
   font-weight: bold;
@@ -57,7 +56,7 @@
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
-  border-radius: 50% ;
+  border-radius: 50%;
   margin: 0.5rem;
   background-color: #131312;
 }
@@ -72,7 +71,7 @@
 .NFT_page .NFT_page_div_table {
   width: 65rem;
   height: 19rem;
-  padding-left: 3rem ;
+  padding-left: 3rem;
 }
 .NFT_page .NFT_page_div_table th {
   padding: 5px 5px !important;

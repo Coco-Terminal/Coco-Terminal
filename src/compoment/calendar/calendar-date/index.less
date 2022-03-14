@@ -1,8 +1,8 @@
 .NFT_page {
-  width: 75rem;
-  height: 24rem;
+  width: 100%;
+  // height: 40rem;
   margin-top: 3rem;
-  overflow: hidden;
+  // overflow: hidden;
   // background-color: rgb(189, 172, 206);
 
   h1 {
@@ -12,17 +12,68 @@
   }
   .NFT_page_div {
     width: 73.5rem;
-    height: 20rem;
-    background-color: #fff;
+    background-color: white;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
   .NFT_page_div_date {
     width: 20rem;
-    height: 19rem;
-    // background-color: rgb(130, 214, 196);
+    height: 40rem;
+
     overflow: hidden;
+
+    h3 {
+      color: rgb(110, 24, 250);
+      span {
+        color: rgb(157, 143, 238);
+      }
+    }
+    .NFT_page_div_button {
+      width: 100%;
+      height: 2rem;
+      background-color: white;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: left;
+      button {
+        background: #9760ff;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        margin-left: 1rem;
+      }
+    }
+    .NFT_page_div_lesttime {
+      width: 100%;
+      height: 3rem;
+
+      margin-top: 0.5rem;
+      div {
+        width: 100%;
+        height: 1.5rem;
+
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: left;
+        span {
+          display: inline-block;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 50%;
+          margin: 0.5rem;
+          background-color: rgb(19, 19, 18);
+        }
+        p {
+          font-weight: bold;
+        }
+      }
+      .NFT_page_div_lesttime_p {
+        margin-left: 1.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+    }
   }
   .NFT_page_div_table {
     width: 65rem;

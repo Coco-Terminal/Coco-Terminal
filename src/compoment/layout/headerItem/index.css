@@ -78,7 +78,9 @@
   flex-wrap: nowrap;
   justify-content: center;
 }
-.Topherder .herder_waller .herder_waller_box p {
+.Topherder .herder_waller .herder_waller_box .gas_price {
+  display: flex;
+  align-items: center;
   width: 5rem;
   height: 2rem;
   line-height: 2rem;
@@ -87,12 +89,16 @@
   font-weight: bold;
   color: #803d8d;
 }
+.Topherder .herder_waller .herder_waller_box .gas_price p {
+  margin: 0;
+}
 .Topherder .herder_waller_fee {
   width: 12rem;
   height: 3rem;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: center;
 }
 .Topherder .herder_waller_fee .herder_waller_fee_span {
   width: 3rem;
@@ -102,29 +108,11 @@
   background-color: gainsboro;
   border: 0.1rem solid #a00d0d;
 }
-.Topherder .herder_waller_fee .herder_waller_fee_div {
+.Topherder .herder_waller_fee .herder_waller_fee_div .wallet_info {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
-.Topherder .herder_waller_fee .herder_waller_fee_div div {
-  width: 100%;
-  height: 1.5rem;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  line-height: 1.5rem;
-}
-.Topherder .herder_waller_fee .herder_waller_fee_div div p {
-  width: 3rem;
-  overflow: hidden;
-  font-size: 0.1rem;
-  line-height: 1.5rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: black;
-  text-align: left;
-}
-.Topherder .herder_waller_fee .herder_waller_fee_div div svg {
-  margin-top: 0.2rem;
+.Topherder .herder_waller_fee .herder_waller_fee_div .wallet_info p {
+  margin: 0;
+  margin-left: 10px;
 }

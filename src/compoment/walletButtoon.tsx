@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Spinner } from './Spiner'
 import { injected } from '../utils/connectors'
 import { useWeb3React } from '@web3-react/core'
 import { useInactiveListener } from '../utils/hook'
+import { WalletOutlined } from '@ant-design/icons'
+import { message } from 'antd'
 
 function ConnectChain(props: { triedEager: any }) {
   const context = useWeb3React()
@@ -38,7 +40,45 @@ function ConnectChain(props: { triedEager: any }) {
     : 'Connect'
 
   return (
-    <button
+    // <button
+    //   style={{
+    //     borderColor: activating ? 'orange' : connected ? 'green' : 'unset',
+    //     cursor: disabled ? 'unset' : 'pointer',
+    //     position: 'relative',
+    //   }}
+    //   className="ConnectButton"
+    //   disabled={disabled}
+    //   onClick={() => {
+    //     if (!isDisconnect) {
+    //       setActivatingConnector(injected)
+    //       activate(injected)
+    //     } else {
+    //       deactivate()
+    //     }
+    //   }}
+    // >
+    //      <div
+    //     style={{
+    //       position: 'absolute',
+    //       top: '0',
+    //       left: '0',
+    //       height: '100%',
+    //       display: 'flex',
+    //       alignItems: 'center',
+    //       color: 'black',
+    //       margin: '0 0 0 1rem',
+    //     }}
+    //   >
+    //     {activating && (
+    //       <Spinner
+    //         color={'red'}
+    //         style={{ height: '50%', marginLeft: '-1rem' }}
+    //       />
+    //     )}
+    //   </div>
+    //   {buttonText}
+    // </button>
+    <WalletOutlined
       style={{
         borderColor: activating ? 'orange' : connected ? 'green' : 'unset',
         cursor: disabled ? 'unset' : 'pointer',
@@ -48,34 +88,17 @@ function ConnectChain(props: { triedEager: any }) {
       disabled={disabled}
       onClick={() => {
         if (!isDisconnect) {
+          if (chainId !== 1) {
+            message.error('wrong network')
+            return
+          }
           setActivatingConnector(injected)
           activate(injected)
         } else {
           deactivate()
         }
       }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          color: 'black',
-          margin: '0 0 0 1rem',
-        }}
-      >
-        {activating && (
-          <Spinner
-            color={'red'}
-            style={{ height: '50%', marginLeft: '-1rem' }}
-          />
-        )}
-      </div>
-      {buttonText}
-    </button>
+    />
   )
 }
 export default ConnectChain
