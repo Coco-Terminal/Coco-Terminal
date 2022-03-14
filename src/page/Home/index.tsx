@@ -10,9 +10,9 @@ export default class RouteConfig extends Component {
     return (
       <HashRouter>
         <Switch>
-          <Route path="/" exact component={Login}></Route>
-          <Route path="/trende" exact component={Trende}></Route>
-          <Route path="/calendar" exact component={Calendar}></Route>
+          <Route path="/" exact component={Trende}></Route>
+          <Route path="/trending" exact component={Trende}></Route>
+          {/* <Route path="/calendar" exact component={Calendar}></Route> */}
         </Switch>
       </HashRouter>
     )

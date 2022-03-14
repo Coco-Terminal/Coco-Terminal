@@ -17,12 +17,12 @@ const menuList = [
     title: 'NFT',
     children: [
       {
-        key: '/calendar',
+        key: '/trending',
         title: 'Calendar',
       },
       {
-        key: '/trende',
-        title: 'Trende',
+        key: '/trending',
+        title: 'Trending',
       },
     ],
   },
