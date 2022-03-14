@@ -2,8 +2,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
 import './date.css/index.css'
-import { Calendar } from 'antd';
-import { Table, Tag, Space } from 'antd';
+import DateTime from './Date/DateTime';
+import { Button } from 'antd';
+import Date_text from './Date2/Date_text';
 export default function Nopermission() {
     function onPanelChange(value: any, mode: any) {
         console.log(value, mode);
@@ -135,50 +136,45 @@ export default function Nopermission() {
       } ,
 
     ]
+    const date = '0000000000'
+    const Listtime = [
+      {
+        key:'1',
+        time:'8.00-9.00',
+        Text:'depes'
+      },
+      {
+        key:'2',
+        time:'8.00-9.00',
+        Text:'depes'
+      },
+    ]
     return (
         <div className='NFT_page'>
            <h1>NFt Colender</h1>
            <div className='NFT_page_div'>
               <div className='NFT_page_div_date'>
-                 <Calendar
-                  fullscreen={false} 
-                  
-                  // onPanelChange={onPanelChange}
-                  
-                  />
+               <DateTime/>
+               <h3>TODAY: <span>{date}</span></h3>
+               <div className='NFT_page_div_button'>
+                  <Button>All-NFT Calendar</Button>
+               </div>
+            
+              {
+                Listtime.map((itme)=>{
+                  return(
+                    <div className='NFT_page_div_lesttime' key={itme.key}>
+                        <div>
+                          <span></span><p>{itme.time}</p>
+                        </div>
+                        <p className='NFT_page_div_lesttime_p'>{itme.Text}</p>
+                    </div>
+                  )
+                })
+              }
               </div>
               <div className='NFT_page_div_table'>
-                <div className='Nft_page_div_table1'>
-                 {/* {
-                   datetime.map((itme)=>{
-                         <span className='Nft_page_div_table1_span' key={itme.key}>
-                                {itme.title}
-                         </span>
-                   })
-                 } */}
-                 <span  style={{marginLeft:'2rem'}}>
-                Mon
-                 </span>
-                 <span  style={{marginLeft:'2.3rem'}}>
-                  Tue
-                 </span>
-                 <span  style={{marginLeft:'2.3rem'}}>
-                 Wed
-                 </span>
-                 <span  style={{marginLeft:'3rem'}}> 
-                Thu
-                 </span>
-                 <span style={{marginLeft:'2.7rem'}}>
-                  Frl  
-                 </span>
-                 <span style={{marginLeft:'2.2rem'}}>
-                 Sot
-                 </span>
-                 <span style={{marginLeft:'2.4rem'}}>
-                 Sot
-                 </span>
-                </div>
-              <Table dataSource={dataSource} columns={columns} />;
+                <Date_text/>
               </div>
            </div>
         </div>
