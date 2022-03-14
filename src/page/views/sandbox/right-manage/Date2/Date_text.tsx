@@ -42,21 +42,25 @@ export default function Date_text() {
       </div>
       <div className="date_text_body">
         <div className="date_text_body_div_one">
-          <span>7rm
-          
-          </span>  <h1>Hour Row</h1>
+          <span>7rm 
+          </span>
+           <h1> Hour Row</h1>
           <span>8rm
 
           </span>
+          <h1> Hour Row</h1>
           <span>9rm
 
             </span> 
+            <h1> Hour Row</h1>
           <span>10rm
 
           </span>
+          <h1> Hour Row</h1>
           <span>11rm
 
           </span>
+          <h1> Hour Row</h1>
         </div>
         <div className="date_text_body_div_two">
              <table>

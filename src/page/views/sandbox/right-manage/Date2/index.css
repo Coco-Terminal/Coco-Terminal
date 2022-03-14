@@ -10,7 +10,7 @@
   justify-content: space-between;
 }
 .date_text .date_text_herder .date_text_herder_box_one {
-  width: 7rem;
+  width: 10rem;
   height: 3rem;
   background-color: white;
   padding-left: 1rem;
@@ -20,9 +20,6 @@
 .date_text .date_text_herder .date_text_herder_box_one span {
   margin-left: 0.2rem;
   margin-right: 0.2rem;
-}
-.date_text .date_text_herder .date_text_herder_box_one h1 {
-  width: 50px;
 }
 .date_text .date_text_herder .date_text_herder_box_two {
   width: 20rem;
@@ -62,14 +59,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 32px;
+  padding-top: 50px;
 }
 .date_text .date_text_body_div_one span {
   width: 100%;
-  height: 105px;
+  height: 90px;
   margin-top: 0.2rem;
   line-height: 30rem;
-  line-height: 100px;
+  line-height: 50px;
+}
+.date_text .date_text_body_div_one h1 {
+  width: 100px;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  color: #c0bbbb;
+  margin-top: 10px;
 }
 .date_text .date_text_body_div_two {
   width: 45rem;
