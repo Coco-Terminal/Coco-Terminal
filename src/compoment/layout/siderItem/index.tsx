@@ -5,6 +5,7 @@ import './index.css'
 import { Button } from 'antd'
 import { ArrowUpOutlined } from '@ant-design/icons'
 import logoImg from '../../../assets/logo.png'
+import { HashRouter, Link } from 'react-router-dom'
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -12,15 +13,15 @@ const { SubMenu } = Menu
 //模拟数组结构
 const menuList = [
   {
-    key: '/home',
+    key: '/',
     title: 'NFT',
     children: [
       {
-        key: '/Caledar',
+        key: '/caledar',
         title: 'Caledar',
       },
       {
-        key: '/home/Trende',
+        key: '/trende',
         title: 'Trende',
       },
     ],
@@ -41,7 +42,7 @@ const menuList = [
 
 export default function SideMenu(props: any) {
   const renderMenu = (menuList: any[]) => {
-    return menuList.map((item) => {
+    return menuList.map((item, index) => {
       if (item.children) {
         return (
           <SubMenu key={item.key} icon={item.icon} title={item.title}>
@@ -51,15 +52,11 @@ export default function SideMenu(props: any) {
       }
 
       return (
-        <Menu.Item
-          key={item.key}
-          icon={item.icon}
-          onClick={() => {
-            props.history.push(item.key)
-          }}
-        >
-          {item.title}
-        </Menu.Item>
+        <HashRouter>
+          <Menu.Item key={index} icon={item.icon}>
+            <Link to={item.key}>{item.title}</Link>
+          </Menu.Item>
+        </HashRouter>
       )
     })
   }
@@ -80,7 +77,7 @@ export default function SideMenu(props: any) {
         }}
         className="sizemenu"
       >
-        <div style={{ width: '5rem ', marginTop: '1rem' }}>
+        <div style={{ width: '5rem ', marginTop: '1rem', margin: '0 auto' }}>
           <img src={logoImg} alt="" style={{ width: '100% ' }} />
         </div>
         <Menu theme="light" mode="inline" defaultSelectedKeys={['3']}>

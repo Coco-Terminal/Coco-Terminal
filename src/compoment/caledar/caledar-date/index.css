@@ -1,0 +1,58 @@
+.NFT_page {
+  width: 75rem;
+  height: 24rem;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+.NFT_page h1 {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.NFT_page .NFT_page_div {
+  width: 73.5rem;
+  height: 20rem;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.NFT_page .NFT_page_div_date {
+  width: 20rem;
+  height: 19rem;
+  overflow: hidden;
+}
+.NFT_page .NFT_page_div_table {
+  width: 65rem;
+  height: 19rem;
+  padding-left: 3rem;
+}
+.NFT_page .NFT_page_div_table th {
+  padding: 5px 5px !important;
+  text-align: center;
+}
+.NFT_page .NFT_page_div_table td {
+  padding: 4px 0px !important;
+  border: 0.05rem solid black;
+  border-left: 0px solid black !important;
+}
+.NFT_page .NFT_page_div_table .ant-table table {
+  border-collapse: collapse !important;
+}
+.NFT_page .NFT_page_div_table table {
+  border-left: 0px solid black !important;
+}
+.NFT_page .NFT_page_div_table .Nft_page_div_table1 {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+}
+.NFT_page .NFT_page_div_table .Nft_page_div_table1 span {
+  width: 5rem;
+  height: 2rem;
+  display: inline-block;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
