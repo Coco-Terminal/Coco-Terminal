@@ -13,7 +13,6 @@ const Layouts: React.FC<any> = (props) => {
       <SiderItem></SiderItem>
       <Layout className="site-layout">
         <HeaderItem></HeaderItem>
-        {/* <Header className="site-layout-background" style={{ padding: 0 }} /> */}
         <Content style={{ margin: '0 16px' }}>{children}</Content>
       </Layout>
     </Layout>

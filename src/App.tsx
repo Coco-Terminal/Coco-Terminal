@@ -30,9 +30,6 @@ function App() {
       <Layouts>
         <Home></Home>
       </Layouts>
-
-      {/* <Editingtwo></Editingtwo> */}
-      {/* <ConnectChain triedEager={triedEager} /> */}
     </Web3ReactProvider>
   )
 }

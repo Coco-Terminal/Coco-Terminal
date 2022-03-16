@@ -17,7 +17,7 @@ const menuList = [
     title: 'NFT',
     children: [
       {
-        key: '/trending',
+        key: '/calendar',
         title: 'Calendar',
       },
       {
@@ -88,8 +88,8 @@ export default function SideMenu(props: any) {
             <span>
               <ArrowUpOutlined />
             </span>
-            <h1>Get Premlum Now!</h1>
-            <Button className="sizdmenubutton">UFORACK</Button>
+            <h1>Get premium Now!</h1>
+            <Button className="sizdmenubutton"> UPGRADE</Button>
           </div>
         </div>
       </Sider>

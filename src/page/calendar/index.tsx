@@ -1,200 +1,483 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.css'
-import { Layout } from 'antd'
+import {
+  Button,
+  Checkbox,
+  DatePicker,
+  Form,
+  Input,
+  Layout,
+  message,
+  Modal,
+} from 'antd'
 
 import {
   GlobalOutlined,
   TwitterOutlined,
   MessageOutlined,
   CalendarOutlined,
+  PlusOutlined,
+  MoneyCollectOutlined,
+  EditOutlined,
+  CloseCircleOutlined,
 } from '@ant-design/icons'
-import CaledarDate from '../../compoment/calendar/calendar-date'
+import Calender from '../../compoment/calendar/calendar-date'
+import { formatTime } from '../../utils/formatTime'
+import WebsiteImg from '../../assets/calendar/website.png'
+import DiscordImg from '../../assets/calendar/discord.png'
+import TwitterImg from '../../assets/calendar/twitter.png'
+import avatarImg from '../../assets/calendar/avatar.jpeg'
+import {
+  addCalendarList,
+  deleteCalendarList,
+  getCalendarList,
+  updateCalendarList,
+} from '../../api/calendar'
+import { useHistory } from 'react-router-dom'
+import { useWeb3React } from '@web3-react/core'
+
+export interface ICalendar {
+  projectName: string
+  total: string
+  note: string
+  address: string
+  mintPrice: string
+  mintNumberPerWallet: string
+  date: string
+  website: string
+  discord: string
+  twitter: string
+  _id?: string
+}
+
 export default function Calendar() {
   function onPanelChange(value: any, mode: any) {
     console.log(value, mode)
   }
-  const arrs = [
-    {
-      key: '1',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum gjsdashj gajksdhd jk dolor sit amet, consectetuer adipiscing elit. AeneanAeneanAeneanAeneanAeneanAeneanAeneanAenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-    {
-      key: '2',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-    {
-      key: '3',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-    {
-      key: '4',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-    {
-      key: '5',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-    {
-      key: '6',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-    {
-      key: '7',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-    {
-      key: '8',
-      projectName: 'Lorem Ipsum',
-      type: 'TYPE',
-      Note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean',
-      a: 'View All',
-      Price: '1 Eth',
-      total: '9.999',
-      date: 'feb ob ,2022 00:00:00',
-      Day: '00',
-      Mrs: '000',
-      Min: '000',
-      Sec: '000',
-    },
-  ]
-  const tr = [
-    {
-      key: '1',
-      title: 'Mon',
-    },
-    {
-      key: '2',
-      title: 'Mon',
-    },
-    {
-      key: '3',
-      title: 'Mon',
-    },
-    {
-      key: '4',
-      title: 'Mon',
-    },
-    {
-      key: '5',
-      title: 'Mon',
-    },
-    {
-      key: '6',
-      title: 'Mon',
-    },
-    {
-      key: '7',
-      title: 'Mon',
-    },
-  ]
+  const { chainId, library, account, active } = useWeb3React()
+
+  const [calendarList, setCalendar] = useState<ICalendar[]>([])
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+  const [isShowUpdate, setIsShowUpdate] = useState<boolean>(false)
+  const [projectName, setProjectName] = useState<string>()
+  const [total, setTotal] = useState<string>()
+  const [note, setNote] = useState<string>()
+  const [address, setAddress] = useState<string>()
+  const [mintPrice, setMintPrice] = useState<string>()
+  const [mintNumberPerWallet, setMintNumberPerWallet] = useState<string>()
+  const [date, setDate] = useState<string>()
+  const [website, setWebsite] = useState<string>()
+  const [discord, setDiscord] = useState<string>()
+  const [twitter, setTwitter] = useState<string>()
+  const [_id, setId] = useState<string>()
+
+  //   const history = useHistory()
+  //   const getCalendarListApi = () => {
+  //     getCalendarList({ address: account ?? '' }).then((res) => {
+  //       //   console.log(res.data.datas)
+  //       setCalendar(res.data.datas)
+  //     })
+  //   }
+  useEffect(() => {
+    getCalendarList({ address: account ?? '' }).then((res) => {
+      //   console.log(res.data.datas)
+      setCalendar(res.data.datas)
+    })
+    // getCalendarListApi
+  }, [account, active])
+
   return (
     <>
       <div className="Caledar_box">
         <h1>NFT Drops</h1>
         <Layout className="Caledar_Lorem">
-          {arrs.map((item) => {
+          {/* {calendarList.length <= 0 ? ( */}
+          <div
+            className="calendar_item calendar_add_item"
+            onClick={() => {
+              setIsModalVisible(!isModalVisible)
+              //   history.push('/treading')
+            }}
+          >
+            <PlusOutlined className="calendar_add_icon" />
+          </div>
+
+          {calendarList.map((item) => {
             return (
               <>
                 <div className="calendar_item">
-                  <div className="item_avatar"></div>
-                  <div className="item_project_name">{item.projectName}</div>
-                  <div className="item_project_type">{item.type}</div>
+                  <div
+                    className="delete_btn"
+                    onClick={() => {
+                      deleteCalendarList({ _id: item._id }).then(() => {
+                        message.success('Deleted successfully')
+                        getCalendarList({ address: account ?? '' }).then(
+                          (res) => {
+                            //   console.log(res.data.datas)
+                            setCalendar(res.data.datas)
+                          }
+                        )
+                      })
+                    }}
+                  >
+                    <CloseCircleOutlined style={{ color: 'red' }} />
+                  </div>
+                  <div className="item_avatar">
+                    <img src={avatarImg} alt="" />
+                  </div>
+                  <div className="item_project_name">
+                    {item.projectName}
+                    <EditOutlined
+                      style={{ marginLeft: '10px', cursor: 'pointer' }}
+                      onClick={() => {
+                        setIsShowUpdate(true)
+                        setProjectName(item.projectName)
+                        setTotal(item.total)
+                        setNote(item.note)
+                        setMintPrice(item.mintPrice)
+                        setMintNumberPerWallet(item.mintNumberPerWallet)
+                        setDate(item.date)
+                        setWebsite(item.website)
+                        setDiscord(item.discord)
+                        setTwitter(item.twitter)
+                        setId(item._id)
+                        console.log(projectName)
+                      }}
+                    />
+                  </div>
+                  <div className="item_project_type">Supply:{item.total}</div>
                   <div className="item_project_note">
-                    <p>{item.Note}</p>
+                    <p>{item.note}</p>
                   </div>
                   <div className="item_line"></div>
                   <div className="item_price_group">
                     <div className="item_project_price">
                       <p>Price</p>
-                      <p>1 ETH</p>
+                      <p>{item.mintPrice}</p>
                     </div>
                     <div className="item_project_total">
-                      <p>Price</p>
-                      <p>1 ETH</p>
+                      <p>mint/WL</p>
+                      <p>{item.mintNumberPerWallet}</p>
                     </div>
                     <div className="item_project_date">
-                      <p>Price</p>
-                      <p>1 ETH</p>
+                      <p>Date</p>
+                      <p>{formatTime(item.date, 'D,M,Y H:M:S')}</p>
                     </div>
+                  </div>
+                  <div className="item_timeout_btn">
+                    <div className="item_timeout_name">
+                      <p>Day</p>
+                      <p>Hrs</p>
+                      <p>Min</p>
+                      <p>Sec</p>
+                    </div>
+                    <div className="item_timeout_time">
+                      <p>
+                        {
+                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
+                            ','
+                          )[0]
+                        }{' '}
+                        :
+                      </p>
+                      <p>
+                        {
+                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
+                            ','
+                          )[3]
+                        }{' '}
+                        :
+                      </p>
+                      <p>
+                        {
+                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
+                            ','
+                          )[4]
+                        }{' '}
+                        :
+                      </p>
+                      <p>
+                        {' '}
+                        {
+                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
+                            ','
+                          )[5]
+                        }{' '}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="item_btn_group">
+                    <div className="btn_group_right">
+                      <img
+                        src={WebsiteImg}
+                        onClick={() => {
+                          window.open(item.website)
+                        }}
+                        alt=""
+                      />
+                      <img
+                        src={DiscordImg}
+                        onClick={() => {
+                          window.open(item.discord)
+                        }}
+                        alt=""
+                      />
+                      <img
+                        src={TwitterImg}
+                        onClick={() => {
+                          window.open(item.twitter)
+                        }}
+                        alt=""
+                      />
+                    </div>
+                    <div className="btn_group_left">mint</div>
                   </div>
                 </div>
               </>
             )
           })}
+
+          <Modal
+            title="Add Basic Project Info"
+            visible={isModalVisible}
+            onOk={() => {
+              if (account) {
+                addCalendarList({
+                  projectName,
+                  total,
+                  note,
+                  address: account,
+                  mintPrice,
+                  mintNumberPerWallet,
+                  date,
+                  website,
+                  discord,
+                  twitter,
+                }).then((res) => {
+                  if (res.status === 200) {
+                    setIsModalVisible(false)
+                    message.success('Added successfully')
+                    getCalendarList({ address: account ?? '' }).then((res) => {
+                      //   console.log(res.data.datas)
+                      setCalendar(res.data.datas)
+                    })
+                  } else {
+                    setIsModalVisible(false)
+                    message.error('Add failed')
+                  }
+                })
+              } else {
+                setIsModalVisible(false)
+                message.error('Please connect Wallet')
+              }
+            }}
+            onCancel={() => {
+              setIsModalVisible(false)
+            }}
+            wrapClassName="add_modal"
+          >
+            <Form
+              name="basic"
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 18 }}
+              initialValues={{ remember: true }}
+              autoComplete="off"
+              labelAlign="left"
+            >
+              <Form.Item label="projectName" name="projectName">
+                <Input
+                  onChange={(e) => {
+                    setProjectName(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="price" name="mintPrice">
+                <Input
+                  onChange={(e) => {
+                    setMintPrice(e.target.value)
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item label="mintNumber" name="mintNumber">
+                <Input
+                  onChange={(e) => {
+                    setMintNumberPerWallet(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="date" name="date">
+                <DatePicker
+                  showTime={true}
+                  onChange={(e) => {
+                    setDate(e?.valueOf()?.toString())
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="note" name="note">
+                <Input
+                  onChange={(e) => {
+                    setNote(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="total" name="total">
+                <Input
+                  onChange={(e) => {
+                    setTotal(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="website" name="website">
+                <Input
+                  onChange={(e) => {
+                    setWebsite(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="discord" name="discord">
+                <Input
+                  onChange={(e) => {
+                    setDiscord(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="twitter" name="twitter">
+                <Input.TextArea
+                  onChange={(e) => {
+                    setTwitter(e.target.value)
+                  }}
+                />
+              </Form.Item>
+            </Form>
+          </Modal>
+          <Modal
+            title="Update Basic Project Info"
+            visible={isShowUpdate}
+            onOk={() => {
+              if (account) {
+                updateCalendarList({
+                  projectName,
+                  total,
+                  note,
+                  address: account,
+                  mintPrice,
+                  mintNumberPerWallet,
+                  date,
+                  website,
+                  discord,
+                  twitter,
+                  _id,
+                }).then((res) => {
+                  if (res.status === 200) {
+                    setIsShowUpdate(false)
+                    message.success('Update successfully')
+                    getCalendarList({ address: account ?? '' }).then((res) => {
+                      //   console.log(res.data.datas)
+                      setCalendar(res.data.datas)
+                    })
+                  } else {
+                    setIsShowUpdate(false)
+                    message.error('Update failed')
+                  }
+                })
+              } else {
+                setIsShowUpdate(false)
+                message.error('Please connect Wallet')
+              }
+            }}
+            onCancel={() => {
+              setIsShowUpdate(false)
+            }}
+            wrapClassName="add_modal"
+          >
+            <Form
+              name="basic"
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 18 }}
+              initialValues={{ remember: true }}
+              autoComplete="off"
+              labelAlign="left"
+            >
+              <Form.Item label="projectName" name="projectName">
+                <Input
+                  defaultValue={projectName}
+                  onChange={(e) => {
+                    setProjectName(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="price" name="mintPrice">
+                <Input
+                  defaultValue={mintPrice}
+                  onChange={(e) => {
+                    setMintPrice(e.target.value)
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item label="mintNumber" name="mintNumber">
+                <Input
+                  defaultValue={mintPrice}
+                  onChange={(e) => {
+                    setMintNumberPerWallet(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="date" name="date">
+                <DatePicker
+                  showTime={true}
+                  onChange={(e) => {
+                    setDate(e?.valueOf()?.toString())
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="note" name="note">
+                <Input
+                  defaultValue={note}
+                  onChange={(e) => {
+                    setNote(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="total" name="total">
+                <Input
+                  defaultValue={total}
+                  onChange={(e) => {
+                    setTotal(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="website" name="website">
+                <Input
+                  defaultValue={website}
+                  onChange={(e) => {
+                    setWebsite(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="discord" name="discord">
+                <Input
+                  defaultValue={discord}
+                  onChange={(e) => {
+                    setDiscord(e.target.value)
+                  }}
+                />
+              </Form.Item>
+              <Form.Item label="twitter" name="twitter">
+                <Input.TextArea
+                  defaultValue={twitter}
+                  onChange={(e) => {
+                    setTwitter(e.target.value)
+                  }}
+                />
+              </Form.Item>
+            </Form>
+          </Modal>
         </Layout>
       </div>
-      <CaledarDate />
+      <Calender calendarData={calendarList} />
     </>
   )
 }

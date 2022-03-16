@@ -7,9 +7,12 @@
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@ethersproject/providers": "^5.5.3",
+    "@fullcalendar/core": "^5.10.1",
     "@fullcalendar/daygrid": "^5.10.1",
     "@fullcalendar/interaction": "^5.10.1",
     "@fullcalendar/react": "^5.10.1",
+    "@fullcalendar/resource-timegrid": "^5.10.1",
+    "@fullcalendar/resource-timeline": "^5.10.1",
     "@fullcalendar/timegrid": "^5.10.1",
     "@tarojs/components": "^3.4.3",
     "@tarojs/taro": "^3.4.3",
@@ -61,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-calendar": "^3.5.0",
     "@types/react-router-dom": "^5.3.3"
   }
 }
