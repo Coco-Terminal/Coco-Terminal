@@ -1,4 +1,13 @@
+.sizdmenu_box{
+  width: 300px;
+}
+.sizdmenu_box .ant-layout-sider-children{
+  width: 300px !important;
+  padding-left: 33px;
+  padding-right: 27px;
+}
 .sizemenu {
+
   background-color: rgb(232, 235, 238);
   color: black !important;
 }
@@ -10,17 +19,9 @@
   background-color: white !important;
   color: black !important;
 }
-.logo {
-  line-height: 32px;
-  color: white;
-  /* background-color: rgba(255, 255, 255,0.3); */
-  font-size: 18px;
-  /* margin: 10px; */
-  text-align: center;
-  margin-top: 1.5rem;
-}
+
 .sizdmenu {
-  width: 100%;
+  width: 300px;
   text-align: center;
   color: #000;
   margin-top: 0.3rem;
@@ -32,6 +33,7 @@
   margin-top: 4rem;
   display: flex;
   justify-content: center;
+
 }
 .sizdmenu_div_one {
   background: linear-gradient(
@@ -40,21 +42,30 @@
     #f8f7f8 28.74%,
     #cca9f7 72.89%
   ) !important;
-  width: 80%;
+  width: 208px;
+  height: 264px;
   border-radius: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+text-transform: capitalize;
+
+color: #070707;
 }
 .sizdmenu_div_one > span {
   display: block;
-  width: 3rem;
-  height: 3rem;
+  width: 80px;
+  height: 80px;
   color: white;
+  font-size:70px;
   font-weight: bold;
   text-align: center;
-  line-height: 3rem;
-  font-size: 2.2rem;
   background: linear-gradient(
     211.92deg,
     #5c085c 8.36%,
@@ -67,14 +78,30 @@
 .sizdmenu_div_one > h1 {
   width: 100%;
   height: 3rem;
-  font-size: 1.3rem;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
   text-align: center;
-  font-weight: bold;
+  text-transform: capitalize;
+  
+  color: #070707;
 }
 .sizdmenubutton {
-  background-color: rgb(130, 85, 212);
+  width: 160px;
+  height: 50px;
+  background: #761FDE;
+  mix-blend-mode: normal;
+  border-radius: 10px;
   color: white;
   font-weight: bold;
   border-radius: 0.5rem;
   margin-top: 1.5rem;
+  font-size: 24px;
+}
+.logo{
+  width:70px ;
+  height: 70px;
+  margin: 22px 0px 22px 22px;
 }

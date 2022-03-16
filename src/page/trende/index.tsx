@@ -348,7 +348,7 @@ export default function Trende() {
           onChange={onChange}
           columns={columns}
           dataSource={listData}
-          scroll={{ x: 1500, y: 460 }}
+          scroll={{ x: 1487, y: 460 }}
           pagination={false}
         />
         <Pagination

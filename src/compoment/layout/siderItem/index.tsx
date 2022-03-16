@@ -63,7 +63,7 @@ export default function SideMenu(props: any) {
     })
   }
   return (
-    <>
+    <div className='sizdmenu_box'>
       {/* <Sider trigger={null} collapsible collapsed={false} className="sizemenu"> */}
 
       {/* </Sider> */}
@@ -79,7 +79,7 @@ export default function SideMenu(props: any) {
         }}
         className="sizemenu"
       >
-        <div style={{ width: '5rem ', marginTop: '1rem', margin: '0 auto' }}>
+        <div className='logo'>
           <img src={logoImg} alt="" style={{ width: '100% ' }} />
         </div>
         <Menu theme="light" mode="inline" defaultSelectedKeys={['3']}>
@@ -95,6 +95,6 @@ export default function SideMenu(props: any) {
           </div>
         </div>
       </Sider>
-    </>
+    </div>
   )
 }

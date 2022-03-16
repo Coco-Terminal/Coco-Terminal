@@ -1698,29 +1698,6 @@
     "@fullcalendar/premium-common" "~5.10.1"
     tslib "^2.1.0"
 
-"@fullcalendar/resource-daygrid@~5.10.1":
-  version "5.10.1"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/resource-daygrid/-/resource-daygrid-5.10.1.tgz#bb54408a62d373ddc9ffe02a17a1264386a3dd3f"
-  integrity sha512-79MRD64n55EWOY1uiGEePYwrjWLVNbXNLoCvsQo/ukKstXkdiJAvwpeWW1+6DjYtnTNd2UsSQOOTEjVx4UfZPw==
-  dependencies:
-    "@fullcalendar/common" "~5.10.1"
-    "@fullcalendar/daygrid" "~5.10.1"
-    "@fullcalendar/premium-common" "~5.10.1"
-    "@fullcalendar/resource-common" "~5.10.1"
-    tslib "^2.1.0"
-
-"@fullcalendar/resource-timegrid@^5.10.1":
-  version "5.10.1"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/resource-timegrid/-/resource-timegrid-5.10.1.tgz#b46eba1933f4c3ee68ee6bfd96a2960500afd32a"
-  integrity sha512-aaEbA5lrTH1C3xjWssqguHnfJvi0C3ZOHICeH/5Mc2W5eWsGWCilCJs532rP/0qtOYP78whkHlcsB3QDlMSHsQ==
-  dependencies:
-    "@fullcalendar/common" "~5.10.1"
-    "@fullcalendar/premium-common" "~5.10.1"
-    "@fullcalendar/resource-common" "~5.10.1"
-    "@fullcalendar/resource-daygrid" "~5.10.1"
-    "@fullcalendar/timegrid" "~5.10.1"
-    tslib "^2.1.0"
-
 "@fullcalendar/resource-timeline@^5.10.1":
   version "5.10.1"
   resolved "https://registry.yarnpkg.com/@fullcalendar/resource-timeline/-/resource-timeline-5.10.1.tgz#a16839b4f09fb85441e6b074cbc7038622da808f"
@@ -1742,7 +1719,7 @@
     "@fullcalendar/premium-common" "~5.10.1"
     tslib "^2.1.0"
 
-"@fullcalendar/timegrid@^5.10.1", "@fullcalendar/timegrid@~5.10.1":
+"@fullcalendar/timegrid@^5.10.1":
   version "5.10.1"
   resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-5.10.1.tgz#fa7feb909bf599eac1466b9e70c0d56ce0d1aefc"
   integrity sha512-0O0m+JzFBlg8gxYr/rIjZViRlbndCtjZlDjjIylQHFBeWC32e3cpHEavKGbTIBLN8SDilUYAJnE21abSqC2G/w==
