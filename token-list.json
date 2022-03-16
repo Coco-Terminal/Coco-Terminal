@@ -1,0 +1,41 @@
+{
+    "setDetails": {
+      "chainId": "1 = ETHEREUM, 137 = POLYGON, 10 = OPTIMISM",
+      "setName": "The APIs",
+      "setSymbol": "API",
+      "setDecimals": 18,
+      "setIcon": "https://avatars.githubusercontent.com/u/11744342?s=400&u=164013640d399f6283412bcb45920ca4eaa75e3f&v=4",
+      "setDescription": "Indexing protocol for reading and writing to open networks. Making APIs open and accessible to power a decentralized world.  ",
+      "website": "https://www.theapis.xyz/",
+      "managerName": "theapismanager",
+      "managerTwitter": "@twitter.com/TheAPIS_xyz",
+      "managerIcon": "https://ae01.alicdn.com/kf/H249710079c0545888a6850ffd0f5bc2dT.jpg",
+      "managerDescription": "IAMTHEAPISMANAGER"
+    },
+    "version": 1
+  }
+  {
+    "name": "API",
+    "logoURI": "https://avatars.githubusercontent.com/u/11744342?s=400&u=164013640d399f6283412bcb45920ca4eaa75e3f&v=4",
+    "keywords": [
+        "defi",
+        "nft",
+        "metaverse"
+      ],
+      "timestamp": "2021-09-01T01:40:34.305Z",
+      "tokens": [
+        {
+        "chainId": 1,
+        "address": "0xfd4168e642ebd04c3684a6cdb3a5e86de85d3908",
+        "name": "The APIS",
+        "symbol": "API",
+        "decimals": 18,
+        "logoURI": "https://avatars.githubusercontent.com/u/11744342?s=400&u=164013640d399f6283412bcb45920ca4eaa75e3f&v=4"
+        }
+      ],
+      "version": {
+        "major": 0,
+        "minor": 0,
+        "patch": 0
+      }
+  }
