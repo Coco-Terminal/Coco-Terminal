@@ -2,13 +2,6 @@
 import React from 'react'
 import './index.css'
 import { Layout } from 'antd'
-
-import {
-  GlobalOutlined,
-  TwitterOutlined,
-  MessageOutlined,
-  CalendarOutlined,
-} from '@ant-design/icons'
 import CaledarDate from '../../compoment/calendar/calendar-date'
 export default function Calendar() {
   function onPanelChange(value: any, mode: any) {
@@ -187,7 +180,7 @@ export default function Calendar() {
                       <p>Price</p>
                       <p>1 ETH</p>
                     </div>
-                  </div>
+                  </div>5
                 </div>
               </>
             )
@@ -195,7 +188,7 @@ export default function Calendar() {
         </Layout>
       </div>
       <div className='caleder_footer'>
-      <CaledarDate/>
+         <CaledarDate/>
       </div>
     </>
   )

@@ -80,13 +80,7 @@ export default function HeaderItem() {
       </div>
       <div className="herder_waller">
         <div className="herder_waller_box">
-          {/* {text.map((itme) => {
-            return (
-              <p key={itme.key}>
-                <span>{itme.icon}</span> {itme.text}
-              </p>
-            )
-          })} */}
+         
           <div className="gas_price">
             <ThunderboltOutlined />
             <p>{gasPrice}</p>

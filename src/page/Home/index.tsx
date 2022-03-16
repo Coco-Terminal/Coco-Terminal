@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import Calendar from '../calendar'
 import Collection from '../collection'
+import Email from '../email'
 import Forum from '../forum'
 import Mywallet from '../mywallet'
 import Trende from '../trende'
@@ -16,10 +17,12 @@ export default class RouteConfig extends Component {
         <Switch>
           <Route path="/" exact component={Trende}></Route>
           <Route path="/trending" exact component={Trende}></Route>
-          <Route path="/calendar" exact component={Calendar}></Route>
+          {/* <Route path="/calendar" exact component={Calendar}></Route>
+           */}
+           <Route path='/email' component={Email}/>
           <Route path ="/Collection" component={Collection}/>
           <Route path="/My Wallet" component={Mywallet}/>
-          <Route path ='/Forum' component={Forum }/>
+          <Route path ='/Forum' component={Forum}/>
         </Switch>
       </HashRouter>
     )

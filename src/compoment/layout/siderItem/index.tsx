@@ -16,9 +16,13 @@ const menuList = [
     key: '/',
     title: 'NFT',
     children: [
+      // {
+      //   key: '/Calendar',
+      //   title: 'Calendar',
+      // },
       {
-        key: '/Calendar',
-        title: 'Calendar',
+        key:'/email',
+        title:'email'
       },
       {
         key: '/trending',
@@ -50,18 +54,6 @@ const menuList = [
      }
     ]
   }
-
-  //   {
-  //     key: '/right-manage',
-  //     title: 'Socal',
-
-  //     children: [
-  //       {
-  //         key: '/right-manage/role/list',
-  //         title: ' Forum',
-  //       },
-  //     ],
-  //   },
 ]
 
 export default function SideMenu(props: any) {
@@ -85,10 +77,8 @@ export default function SideMenu(props: any) {
     })
   }
   return (
-    <>
-      {/* <Sider trigger={null} collapsible collapsed={false} className="sizemenu"> */}
-
-      {/* </Sider> */}
+    <div className='sizdmenu_box'>
+     
 
       <Sider
         breakpoint="lg"
@@ -101,7 +91,7 @@ export default function SideMenu(props: any) {
         }}
         className="sizemenu"
       >
-        <div style={{ width: '5rem ', marginTop: '1rem', margin: '0 auto' }}>
+        <div className='logo'>
           <img src={logoImg} alt="" style={{ width: '100% ' }} />
         </div>
         <Menu theme="light" mode="inline" defaultSelectedKeys={['3']}>
@@ -113,10 +103,10 @@ export default function SideMenu(props: any) {
               <ArrowUpOutlined />
             </span>
             <h1>Get Premlum Now!</h1>
-            <Button className="sizdmenubutton">UFORACK</Button>
+            <Button className="sizdmenubutton">upgrade</Button>
           </div>
         </div>
       </Sider>
-    </>
+    </div>
   )
 }
