@@ -24,6 +24,10 @@ const menuList = [
         key: '/trending',
         title: 'Trending',
       },
+      {
+        key:'/Collection',
+        title:'Collection'
+      }
     ],
   },
 

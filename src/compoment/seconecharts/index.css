@@ -1,0 +1,11 @@
+.echarts_Firstechart {
+  width: 1489px;
+  height: 100%;
+}
+.echarts_Firstechart .echarts {
+  width: 1221px !important;
+  height: 100%;
+}
+.echarts_Firstechart canvas {
+  width: 1221px !important;
+}

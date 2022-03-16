@@ -1,0 +1,14 @@
+.echarts_first {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 0xp;
+}
+.echarts_first .echarts {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+.echarts_first canvas {
+  width: 1221px !important;
+}
