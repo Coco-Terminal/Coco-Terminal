@@ -5,7 +5,7 @@
 
 import React, { PureComponent } from "react";
 import * as eCharts from "echarts";
-
+import './index.css'
 
 interface IProps {
   title: string,         
@@ -30,7 +30,7 @@ export default class  Roundecharts extends
           {
             name: 'Access From',
             type: 'pie',
-            radius: ['40%', '70%'],
+            radius: ['40%', '60%'],
             avoidLabelOverlap: false,
             label: {
               show: false,
@@ -61,8 +61,8 @@ export default class  Roundecharts extends
     myChart.setOption(option);
   }
   render() 
-  { return <div className="echarts_first">
-  <div ref={this.eChartsRef} className="echarts"></div>
+  { return <div className="round">
+  <div ref={this.eChartsRef} className="roundecharts"></div>
   </div>
   ;}
 }
