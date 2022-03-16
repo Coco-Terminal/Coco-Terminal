@@ -194,7 +194,9 @@ export default function Calendar() {
           })}
         </Layout>
       </div>
-      <CaledarDate />
+      <div className='caleder_footer'>
+      <CaledarDate/>
+      </div>
     </>
   )
 }

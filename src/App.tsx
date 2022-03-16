@@ -29,10 +29,7 @@ function App() {
     <Web3ReactProvider getLibrary={getLibrary}>
       <Layouts>
         <Home></Home>
-      </Layouts>
-
-      {/* <Editingtwo></Editingtwo> */}
-      {/* <ConnectChain triedEager={triedEager} /> */}
+      </Layouts>                                    
     </Web3ReactProvider>
   )
 }

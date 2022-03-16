@@ -17,7 +17,7 @@ const menuList = [
     title: 'NFT',
     children: [
       {
-        key: '/trending',
+        key: '/Calendar',
         title: 'Calendar',
       },
       {
@@ -30,6 +30,26 @@ const menuList = [
       }
     ],
   },
+  {
+    key:"/Dashboard",
+    title:'Dashboard',
+    children:[
+      {
+        key:"/My Wallet",
+        title:'My Wallet'
+      }
+    ]
+  },
+  {
+    key:'/Forum',
+    title:'Forum',
+    children:[
+     {
+      key:'/Forum',
+      title:'Forum'
+     }
+    ]
+  }
 
   //   {
   //     key: '/right-manage',
