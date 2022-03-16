@@ -1,48 +1,93 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
-import { Menu, Dropdown, Table, Space, Tag } from "antd";
+import { Menu, Dropdown, Table, Space, Tag, Select } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import Firstecharts from "../../compoment/firstEcharts/Firstecharts";
 import Seconecharts from "../../compoment/seconecharts";
 import Roundecharts from "../../compoment/roundEcharts/Roundecharts";
+
+const { Option } = Select
 export default function Collection() {
+  const [alignment, setAlignment] = useState(1)
+  const [platform, setPlatform] = useState('')
+  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [count, setCount] = useState(10)
   const { SubMenu } = Menu;
 
-  const menu = (
-    <Menu>
-      <Menu.ItemGroup title="Group title">
-        <Menu.Item>1st menu item</Menu.Item>
-        <Menu.Item>2nd menu item</Menu.Item>
-      </Menu.ItemGroup>
-      <SubMenu title="sub menu">
-        <Menu.Item>3rd menu item</Menu.Item>
-        <Menu.Item>4th menu item</Menu.Item>
-      </SubMenu>
-      <SubMenu title="disabled sub menu" disabled>
-        <Menu.Item>5d menu item</Menu.Item>
-        <Menu.Item>6th menu item</Menu.Item>
-      </SubMenu>
-    </Menu>
-  );
-  const BNB = (
-    <Menu>
-      <Menu.ItemGroup title="Group title">
-        <Menu.Item>7777</Menu.Item>
-        <Menu.Item>menu item</Menu.Item>
-      </Menu.ItemGroup>
-      <SubMenu title="sub menu">
-        <Menu.Item>3rd menu item</Menu.Item>
-        <Menu.Item>4th menu item</Menu.Item>
-      </SubMenu>
-      <SubMenu title="disabled sub menu" disabled>
-        <Menu.Item>5d menu item</Menu.Item>
-        <Menu.Item>6th menu item</Menu.Item>
-      </SubMenu>
-    </Menu>
-  );
+  const columns: any = [
+    {
+      title: 'COLLECTION',
+      dataIndex: 'name',
+
+      render: (value: any, record: any) => {
+        return (
+          <div className="collectionBox">
+            <img className="logoImg" src={record.logo} alt="" />
+            <div>
+              <p>{record.name}</p>
+              <p className="percentage">{record.assets}</p>
+            </div>
+          </div>
+        )
+      },
+    },
+    {
+      title: 'FLOOR',
+      dataIndex: 'volumeAT',
+      defaultSortOrder: 'descend',
+      sorter: (a: { floorPrice: number }, b: { floorPrice: number }) =>
+        a.floorPrice - b.floorPrice,
+      render: (value: any, record: any) => {
+        return (
+          <p>
+            {record.floorPrice ?? '0'} {record.floorPriceToken}
+          </p>
+        )
+      },
+    },
+    {
+      title: 'AVERAGE',
+      dataIndex: 'averagePrice',
+
+    
+    },
+    {
+      title: 'VOLUME',
+      dataIndex: 'volumeAT',
+      sorter: (a: { percentage: number }, b: { percentage: number }) =>
+        a.percentage - b.percentage,
+  
+    },
+    {
+      title: 'SALES',
+      dataIndex: 'sales7d',
+    
+      //   sorter: (a: { Floor: number }, b: { Floor: number }) => a.Floor - b.Floor,
+    },
+    {
+      title: 'MKT CAP',
+      dataIndex: 'marketCap',
+      sorter: (a: { marketCap: number }, b: { marketCap: number }) =>
+        a.marketCap - b.marketCap,
+      render: (value: any, record: any) => {
+        return <p>{record.marketCap.toFixed(2)}</p>
+      },
+    },
+    {
+      title: '7D VOLUME',
+      dataIndex: 'volume7d',
+      render: (value: any, record: any) => {
+        return <p>{record.volume7d.toFixed(2)}</p>
+      },
+    },
+  ]
+  
+  
+  
   const Total = [
     {
       key: "1",
@@ -259,6 +304,16 @@ export default function Collection() {
       
   ];
 
+
+  
+  const handleAlignment = (newAlignment: number) => {
+    setAlignment(newAlignment)
+  }
+  
+  const handlePlatform = (blockchain: string) => {
+    setPlatform(blockchain)
+   
+  }
   return (
     <>
       <div className="collection">
@@ -266,24 +321,29 @@ export default function Collection() {
         <div className="collection_total_box">
           <div className="collection_total_dropdown_box">
             <span className="collection_total_dropdown_box_span">Period:</span>
-            <Dropdown overlay={menu} className="collectionDropdown">
-              <a
-                className="ant_dropdown_link"
-                onClick={(e) => e.preventDefault()}
-              >
-                1 Hour <DownOutlined />
-              </a>
-            </Dropdown>
+            <Select
+            defaultValue={1}
+          
+            onChange={handleAlignment}
+            className="collection_select"
+          >
+            <Option value={1}>24h</Option>
+            <Option value={2}>7d</Option>
+            <Option value={3}>30d</Option>
+            <Option value={4}>all time</Option>
+          </Select>
 
             <span className="collection_total_dropdown_box_span">token::</span>
-            <Dropdown overlay={BNB} className="collectionDropdown">
-              <a
-                className="ant_dropdown_link"
-                onClick={(e) => e.preventDefault()}
-              >
-                BNB <DownOutlined />
-              </a>
-            </Dropdown>
+            <Select
+            defaultValue=""
+            onChange={handlePlatform}
+            className="collection_select"
+          >
+            <Option value="BSC">BSC</Option>
+            <Option value="Ethereum">Ethereum</Option>
+            <Option value="Solana">Solana</Option>
+            <Option value="">all</Option>
+          </Select>
           </div>
           <div className="collection_total_max">
             {Total.map((itme) => {
@@ -302,7 +362,9 @@ export default function Collection() {
         <div className="collection_top">
           <h1 className="collection_top_h1">Top 10 NFT Collection Sales</h1>
           <div className="collection_top_table">
-            <Table dataSource={data}>
+            <Table dataSource={data}
+            // columns={}
+            >
               <Column title="Ranking" dataIndex="age" key="age" />
               <Column title="NFT id" dataIndex="tags" key="tags" />
               <Column title="Use Case" dataIndex="tags" key="tags" />
