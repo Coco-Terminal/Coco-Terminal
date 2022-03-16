@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import './index.css'
@@ -477,7 +478,13 @@ export default function Calendar() {
           </Modal>
         </Layout>
       </div>
-      <Calender calendarData={calendarList} />
+
+      <div className='caledar_foot'>
+       
+      </div>
+      
+
+
     </>
   )
 }

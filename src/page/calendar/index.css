@@ -1,5 +1,6 @@
 .Caledar_box {
   text-align: center;
+  padding: 0px 60px 20px 67px;
 }
 .Caledar_box h1 {
   margin-top: 1rem;
@@ -172,4 +173,7 @@
 }
 .Caledar_box .modal_price {
   display: flex;
+}
+.caledar_foot {
+  padding: 0px 60px 20px 67px;
 }

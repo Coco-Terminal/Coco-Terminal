@@ -5,10 +5,10 @@ import './index.css'
 import { Button } from 'antd'
 import CaledarTime from '../calendar-time'
 import CaledarText from '../calendar-text'
-import resourceTimelinePlugin from '@fullcalendar/resource-timeline' // a plugin!
+
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid'
+
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import { getCalendarList } from '../../../api/calendar'
