@@ -12,6 +12,8 @@ import { Badge, Switch, Divider } from 'antd'
 import { ethers } from 'ethers'
 // import { web3currentProvider } from '@web3-react/core'
 import BigNumber from 'bignumber.js'
+import ethImg from '../../../assets/header/eth.svg'
+import gasImg from '../../../assets/header/gas.svg'
 
 import {
   CopyOutlined,
@@ -86,11 +88,11 @@ export default function HeaderItem() {
       <div className="herder_waller">
         <div className="herder_waller_box">
           <div className="gas_price">
-            <ThunderboltOutlined />
+            <img src={gasImg} alt="" />
             <p>{gasPrice}</p>
           </div>
           <div className="eth_price">
-            <DollarCircleOutlined />
+            <img src={ethImg} alt="" />
             <p>{ethPrice}</p>
           </div>
         </div>

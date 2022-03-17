@@ -174,9 +174,9 @@ export default function Trende() {
       period: alignment,
     })
   }
-  const salesRender = (pwiod: number, record: any) => {
+  const salesRender = (Period: number, record: any) => {
     let sales, salesChangePercentage
-    switch (pwiod) {
+    switch (Period) {
       case 1:
         sales = record.oneDay.sales
         salesChangePercentage = record.oneDay.salesChangePercentage
@@ -213,9 +213,9 @@ export default function Trende() {
       </>
     )
   }
-  const averageRender = (pwiod: number, record: any) => {
+  const averageRender = (Period: number, record: any) => {
     let averagePrice, averagePriceChangePercentage
-    switch (pwiod) {
+    switch (Period) {
       case 1:
         averagePrice = record.oneDay.averagePrice
         averagePriceChangePercentage =
@@ -256,9 +256,9 @@ export default function Trende() {
       </>
     )
   }
-  const volnumeRender = (pwiod: number, record: any) => {
+  const volnumeRender = (Period: number, record: any) => {
     let volume, volumeChangePercentage
-    switch (pwiod) {
+    switch (Period) {
       case 1:
         volume = record.oneDay.volume
         volumeChangePercentage = record.oneDay.volumeChangePercentage
@@ -317,7 +317,7 @@ export default function Trende() {
       <h2>Trending Collections</h2>
       <div className="home_button">
         <div>
-          <span>Pwiod:</span>
+          <span>Period:</span>
           <Select
             defaultValue={1}
             style={{ width: 120 }}

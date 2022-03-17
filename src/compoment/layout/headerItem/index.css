@@ -89,6 +89,15 @@
 .Topherder .herder_waller .herder_waller_box .eth_price p {
   margin: 0;
 }
+.Topherder .herder_waller .herder_waller_box .gas_price img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+.Topherder .herder_waller .herder_waller_box .eth_price img {
+  width: 36px;
+  height: 36px;
+}
 .Topherder .herder_waller_fee {
   height: 3rem;
   margin-left: 50px;

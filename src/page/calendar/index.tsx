@@ -81,7 +81,9 @@ export default function Calendar() {
     }
     var time
     var days = parseInt((data / (1000 * 60 * 60 * 24)).toString())
-    var hours = parseInt(((data % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString())
+    var hours = parseInt(
+      ((data % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString()
+    )
     var minutes = parseInt(((data % (1000 * 60 * 60)) / (1000 * 60)).toString())
     var seconds = parseInt(((data % (1000 * 60)) / 1000).toString())
     time =
@@ -95,18 +97,17 @@ export default function Calendar() {
     return time
   }
 
-  const showCountdown=(oldTime:string,idx:number)=>{
-    let currTime = (new Date()).valueOf()
-    let currCounDown =  Number(oldTime) - currTime
+  const showCountdown = (oldTime: string, idx: number) => {
+    let currTime = new Date().valueOf()
+    let currCounDown = Number(oldTime) - currTime
 
-    let timesInterval = setInterval(()=>{
+    let timesInterval = setInterval(() => {
       currCounDown = currCounDown + 1000
       setCounDownTime(currCounDown.toString())
       if (Number(oldTime) - currTime <= 1000) {
-
         clearInterval(timesInterval)
       }
-    },1000)
+    }, 1000)
     return toHHmmss(currCounDown).split(':')[idx]
   }
 
@@ -188,12 +189,12 @@ export default function Calendar() {
                       <p>{item.mintPrice}</p>
                     </div>
                     <div className="item_project_total">
-                      <p>mint/WL</p>
+                      <p>Mint/WL</p>
                       <p>{item.mintNumberPerWallet}</p>
                     </div>
                     <div className="item_project_date">
                       <p>Date</p>
-                      <p>{formatTime(item.date, 'D,M,Y H:M:S')}</p>
+                      <p>{formatTime(item.date, 'Y-M-D H:M')}</p>
                     </div>
                   </div>
                   <div className="item_timeout_btn">
@@ -204,21 +205,10 @@ export default function Calendar() {
                       <p>Sec</p>
                     </div>
                     <div className="item_timeout_time">
-                      <p>
-                        {showCountdown(item.date,0)}
-                        :
-                      </p>
-                      <p>
-                        {showCountdown(item.date,1)} 
-                        :
-                      </p>
-                      <p>
-                        {showCountdown(item.date,2)} 
-                        :
-                      </p>
-                      <p>
-                        {showCountdown(item.date,3)} 
-                      </p>
+                      <p>{showCountdown(item.date, 0)}:</p>
+                      <p>{showCountdown(item.date, 1)}:</p>
+                      <p>{showCountdown(item.date, 2)}:</p>
+                      <p>{showCountdown(item.date, 3)}</p>
                     </div>
                   </div>
                   <div className="item_btn_group">
@@ -492,12 +482,9 @@ export default function Calendar() {
         </Layout>
       </div>
 
-      <div className='caledar_foot'>
-        <CaledarDate calendarData={calendarList}/>
+      <div className="caledar_foot">
+        <CaledarDate calendarData={calendarList} />
       </div>
-      
-
-
     </>
   )
 }
