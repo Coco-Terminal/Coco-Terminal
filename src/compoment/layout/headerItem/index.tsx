@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-undef */
 import React, { useEffect, useState } from 'react'
 import './index.css'
-import { BellFilled } from '@ant-design/icons'
+import { BellFilled, DollarCircleOutlined } from '@ant-design/icons'
 import { Input, Button } from 'antd'
 import { Avatar } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
@@ -22,6 +22,7 @@ import {
 import { useEagerConnect } from '../../../utils/hook'
 import { useWeb3React } from '@web3-react/core'
 import ConnectChain from '../../walletButtoon'
+import { getEthPrice } from '../../../api/CoinGecko'
 export default function HeaderItem() {
   const text = [
     {
@@ -49,6 +50,7 @@ export default function HeaderItem() {
     </Menu>
   )
   const [gasPrice, setGasPrice] = useState<string>('0')
+  const [ethPrice, setEthPrice] = useState<string>('0')
 
   const triedEager = useEagerConnect()
   const { chainId, library, account } = useWeb3React()
@@ -59,41 +61,43 @@ export default function HeaderItem() {
   useEffect(() => {
     setInterval(() => {
       provider.getGasPrice().then((res) => {
-        console.log(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
-
         setGasPrice(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
+      })
+      getEthPrice().then((res) => {
+        setEthPrice(res.data.data.marketPairs[0].price.toFixed(2))
       })
     }, 10000)
   }, [])
   return (
     <div className="Topherder">
-      <div className='herder_serach'>
-      <div className="herder_input">
-        <Input.Group compact style={{ borderRadius: '0.5rem' }}>
-          <Input.Search allowClear style={{ width: '100%' }} />
-        </Input.Group>
-      </div>
+      <div className="herder_serach">
+        <div className="herder_input">
+          <Input.Group compact style={{ borderRadius: '0.5rem' }}>
+            <Input.Search allowClear style={{ width: '100%' }} />
+          </Input.Group>
+        </div>
 
-      <div className="herder_button">
-        <Button type="primary" block>
-          Get premium Now!
-        </Button>
-      </div>
-      
+        <div className="herder_button">
+          <Button type="primary" block>
+            Get premium Now!
+          </Button>
+        </div>
       </div>
       <div className="herder_waller">
         <div className="herder_waller_box">
-      
           <div className="gas_price">
             <ThunderboltOutlined />
             <p>{gasPrice}</p>
           </div>
+          <div className="eth_price">
+            <DollarCircleOutlined />
+            <p>{ethPrice}</p>
+          </div>
         </div>
       </div>
-      
+
       <div className="herder_waller_fee">
- 
-      <div className="herder_waller_fee_div">
+        <div className="herder_waller_fee_div">
           {account ? (
             <div className="wallet_info">
               <div className="wallet_avatar">
@@ -113,7 +117,6 @@ export default function HeaderItem() {
           <BellOutlined shape="square" sizes="large" />
         </Badge>
       </div>
-       </div>
-   
+    </div>
   )
 }

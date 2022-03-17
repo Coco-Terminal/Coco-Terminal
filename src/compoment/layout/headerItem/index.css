@@ -2,11 +2,13 @@
   width: 100%;
   height: 5rem;
   background-color: white;
+  padding: 20px 57px 5px 83px;
+  align-items: center;
   margin-bottom: 2rem;
   justify-content: center;
   display: flex;
   justify-content: space-between;
-  padding: 20px 57px 5px 83px;
+  padding: 0px 30px 5px 20px;
 }
 .Topherder .herder_loge {
   width: 3rem;
@@ -54,7 +56,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  background: linear-gradient(86.43deg, #8A2BE1 35.74%, #BC8AFF 82.02%);
+  background: linear-gradient(86.43deg, #8a2be1 35.74%, #bc8aff 82.02%);
   border-radius: 10px;
 }
 .Topherder .herder_waller {
@@ -71,7 +73,8 @@
   flex-wrap: nowrap;
   justify-content: center;
 }
-.Topherder .herder_waller .herder_waller_box .gas_price {
+.Topherder .herder_waller .herder_waller_box .gas_price,
+.Topherder .herder_waller .herder_waller_box .eth_price {
   display: flex;
   align-items: center;
   width: 5rem;
@@ -82,11 +85,11 @@
   font-weight: bold;
   color: #803d8d;
 }
-.Topherder .herder_waller .herder_waller_box .gas_price p {
+.Topherder .herder_waller .herder_waller_box .gas_price p,
+.Topherder .herder_waller .herder_waller_box .eth_price p {
   margin: 0;
 }
 .Topherder .herder_waller_fee {
-  width: 250px;
   height: 3rem;
   margin-left: 50px;
   display: flex;

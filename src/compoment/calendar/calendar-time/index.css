@@ -3,8 +3,9 @@
   height: 2rem;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-around;
   padding-top: 0.2rem;
+  align-items: center;
 }
 .datetime .datetime_one .datetime_one_one {
   margin-left: 2rem;

@@ -59,7 +59,8 @@ export default function CalendarDate({
         <div className="NFT_page_div_date">
           <CaledarTime />
           <h3>
-            TODAY  &nbsp;    <span>{formatTime(new Date().valueOf(), 'Y-M-D H:M')}</span>
+            TODAY &nbsp;{' '}
+            <span>{formatTime(new Date().valueOf(), 'Y-M-D H:M')}</span>
           </h3>
           <div className="NFT_page_div_button">
             <Button>All-NFT Calendar</Button>
@@ -80,14 +81,12 @@ export default function CalendarDate({
         <div className="NFT_page_div_table">
           <div className="calendar-container">
             <FullCalendar
-          
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               headerToolbar={{
                 left: 'prevYear,prev,next,nextYear today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay',
               }}
-              
               events={calendarList}
               //   eventReceive={}
               //   dateClick={() => {}}

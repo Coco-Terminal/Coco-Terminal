@@ -2,19 +2,19 @@
   width: 100%;
   height: 5rem;
   display: flex;
-  background-color:white;
+  background-color: white;
   margin-bottom: 2rem;
   // padding-left: 20px;
   display: flex;
   justify-content: space-between;
-  padding:20px 57px 5px 83px;
-
+  padding: 20px 57px 5px 83px;
+  align-items: center;
   margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   display: flex;
   justify-content: space-between;
-  padding:0px 30px 5px 20px;
+  padding: 0px 30px 5px 20px;
   .herder_loge {
     width: 3rem;
     height: 3rem;
@@ -61,15 +61,15 @@
       height: 2.5rem;
       font-family: 'Poppins';
       font-style: normal;
-       font-weight: 600;
-       font-size: 20px;
-       line-height: 30px;
-       background: linear-gradient(86.43deg, #8A2BE1 35.74%, #BC8AFF 82.02%);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+      background: linear-gradient(86.43deg, #8a2be1 35.74%, #bc8aff 82.02%);
       //  filter: blur(2px);
-       border-radius: 10px;
+      border-radius: 10px;
     }
   }
- 
+
   .herder_waller {
     width: 35rem;
     height: 3rem;
@@ -84,7 +84,8 @@
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
-      .gas_price {
+      .gas_price,
+      .eth_price {
         display: flex;
         align-items: center;
         width: 5rem;
@@ -102,7 +103,7 @@
     }
   }
   .herder_waller_fee {
-    width:  250px;
+    // width: 250px;
     height: 3rem;
     margin-left: 50px;
     // background-color: yellow;
@@ -111,40 +112,37 @@
     justify-content: space-between;
     align-items: center;
     // background-color: #8A2BE1;
-     .herder_waller_fee_div{
-       display: flex;
-       flex-wrap: nowrap;
-       .wallet_info{
-         display: flex;
-     .wallet_avatar{
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       
-       svg{
-         margin-left: 0px;
-       }
-     }
-       }
-       p{
-         height: 2rem;
-         line-height: 3rem;
-         margin-left: 16px;
-         margin-right: 50px;
-        
-       } 
-   
-     }  
-       svg {
-          margin-left: 1rem;
-          width: 1.8rem;
-          height: 1.8rem;
+    .herder_waller_fee_div {
+      display: flex;
+      flex-wrap: nowrap;
+      .wallet_info {
+        display: flex;
+        .wallet_avatar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            margin-left: 0px;
+          }
         }
+      }
+      p {
+        height: 2rem;
+        line-height: 3rem;
+        margin-left: 16px;
+        margin-right: 50px;
+      }
+    }
+    svg {
+      margin-left: 1rem;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
   }
-  .herder_serach{
+  .herder_serach {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-
   }
 }

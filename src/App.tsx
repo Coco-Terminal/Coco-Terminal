@@ -15,6 +15,7 @@ import ConnectChain from './compoment/walletButtoon'
 import React from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import Layouts from './compoment/layout'
+import './utils/rem'
 
 function getLibrary(provider: ExternalProvider | JsonRpcFetchFunc) {
   const library = new Web3Provider(provider)

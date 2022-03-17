@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 // start:0,limit:10,ort:'volume',desc:true,period:1
-const BASEURL = 'http://192.168.31.215:7001'
+const BASEURL = 'https://alenliao.fun'
 export async function getCalendarList(obj: any) {
   return await axios.get(`${BASEURL}/get-drop`, {
     params: obj,
