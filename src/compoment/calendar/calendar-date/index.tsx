@@ -5,10 +5,10 @@ import './index.css'
 import { Button } from 'antd'
 import CaledarTime from '../calendar-time'
 import CaledarText from '../calendar-text'
-
+// import resourceTimelinePlugin from '@fullcalendar/resource-timeline' // a plugin!
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-
+// import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import { getCalendarList } from '../../../api/calendar'
@@ -60,7 +60,7 @@ export default function CalendarDate({
         <div className="NFT_page_div_date">
           <CaledarTime />
           <h3>
-            TODAY: <span>{formatTime(new Date().valueOf(), 'Y-M-D H:M')}</span>
+            TODAY  &nbsp;    <span>{formatTime(new Date().valueOf(), 'Y-M-D H:M')}</span>
           </h3>
           <div className="NFT_page_div_button">
             <Button>All-NFT Calendar</Button>
@@ -81,12 +81,14 @@ export default function CalendarDate({
         <div className="NFT_page_div_table">
           <div className="calendar-container">
             <FullCalendar
+          
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               headerToolbar={{
                 left: 'prevYear,prev,next,nextYear today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay',
               }}
+              
               events={calendarList}
               //   eventReceive={}
               //   dateClick={() => {}}

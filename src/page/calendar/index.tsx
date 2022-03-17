@@ -29,6 +29,7 @@ import WebsiteImg from '../../assets/calendar/website.png'
 import DiscordImg from '../../assets/calendar/discord.png'
 import TwitterImg from '../../assets/calendar/twitter.png'
 import avatarImg from '../../assets/calendar/avatar.jpeg'
+import CaledarDate from '../../compoment/calendar/calendar-date'
 import {
   addCalendarList,
   deleteCalendarList,
@@ -72,14 +73,43 @@ export default function Calendar() {
   const [discord, setDiscord] = useState<string>()
   const [twitter, setTwitter] = useState<string>()
   const [_id, setId] = useState<string>()
+  const [counDownTime, setCounDownTime] = useState<string>()
 
-  //   const history = useHistory()
-  //   const getCalendarListApi = () => {
-  //     getCalendarList({ address: account ?? '' }).then((res) => {
-  //       //   console.log(res.data.datas)
-  //       setCalendar(res.data.datas)
-  //     })
-  //   }
+  const toHHmmss = (data: number) => {
+    if (data < 0) {
+      return '00:00:00:00'
+    }
+    var time
+    var days = parseInt((data / (1000 * 60 * 60 * 24)).toString())
+    var hours = parseInt(((data % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString())
+    var minutes = parseInt(((data % (1000 * 60 * 60)) / (1000 * 60)).toString())
+    var seconds = parseInt(((data % (1000 * 60)) / 1000).toString())
+    time =
+      (days < 10 ? '0' + days : days) +
+      ':' +
+      (hours < 10 ? '0' + hours : hours) +
+      ':' +
+      (minutes < 10 ? '0' + minutes : minutes) +
+      ':' +
+      (seconds < 10 ? '0' + seconds : seconds)
+    return time
+  }
+
+  const showCountdown=(oldTime:string,idx:number)=>{
+    let currTime = (new Date()).valueOf()
+    let currCounDown =  Number(oldTime) - currTime
+
+    let timesInterval = setInterval(()=>{
+      currCounDown = currCounDown + 1000
+      setCounDownTime(currCounDown.toString())
+      if (Number(oldTime) - currTime <= 1000) {
+
+        clearInterval(timesInterval)
+      }
+    },1000)
+    return toHHmmss(currCounDown).split(':')[idx]
+  }
+
   useEffect(() => {
     getCalendarList({ address: account ?? '' }).then((res) => {
       //   console.log(res.data.datas)
@@ -175,36 +205,19 @@ export default function Calendar() {
                     </div>
                     <div className="item_timeout_time">
                       <p>
-                        {
-                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
-                            ','
-                          )[0]
-                        }{' '}
+                        {showCountdown(item.date,0)}
                         :
                       </p>
                       <p>
-                        {
-                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
-                            ','
-                          )[3]
-                        }{' '}
+                        {showCountdown(item.date,1)} 
                         :
                       </p>
                       <p>
-                        {
-                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
-                            ','
-                          )[4]
-                        }{' '}
+                        {showCountdown(item.date,2)} 
                         :
                       </p>
                       <p>
-                        {' '}
-                        {
-                          formatTime(new Date().valueOf(), 'D,M,Y,H,M,S').split(
-                            ','
-                          )[5]
-                        }{' '}
+                        {showCountdown(item.date,3)} 
                       </p>
                     </div>
                   </div>
@@ -480,7 +493,7 @@ export default function Calendar() {
       </div>
 
       <div className='caledar_foot'>
-       
+        <CaledarDate calendarData={calendarList}/>
       </div>
       
 

@@ -3,9 +3,24 @@
   height: 5rem;
   background-color: white;
   margin-bottom: 2rem;
+  justify-content: center;
   display: flex;
   justify-content: space-between;
   padding: 20px 57px 5px 83px;
+}
+.Topherder .herder_loge {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: azure;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1.1rem;
+  margin-left: 1.5rem;
+}
+.Topherder .herder_loge img {
+  width: 100%;
+  border-radius: 100%;
 }
 .Topherder .herder_input {
   width: 19rem;
