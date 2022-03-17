@@ -67,6 +67,7 @@ export default function HeaderItem() {
   }, [])
   return (
     <div className="Topherder">
+      <div className='herder_serach'>
       <div className="herder_input">
         <Input.Group compact style={{ borderRadius: '0.5rem' }}>
           <Input.Search allowClear style={{ width: '100%' }} />
@@ -78,23 +79,21 @@ export default function HeaderItem() {
           Get premium Now!
         </Button>
       </div>
+      
+      </div>
       <div className="herder_waller">
         <div className="herder_waller_box">
-          {/* {text.map((itme) => {
-            return (
-              <p key={itme.key}>
-                <span>{itme.icon}</span> {itme.text}
-              </p>
-            )
-          })} */}
+      
           <div className="gas_price">
             <ThunderboltOutlined />
             <p>{gasPrice}</p>
           </div>
         </div>
       </div>
+      
       <div className="herder_waller_fee">
-        <div className="herder_waller_fee_div">
+ 
+      <div className="herder_waller_fee_div">
           {account ? (
             <div className="wallet_info">
               <div className="wallet_avatar">
@@ -110,12 +109,11 @@ export default function HeaderItem() {
             <ConnectChain triedEager={triedEager} />
           )}
         </div>
-      </div>
-      <div className="herder_icon">
         <Badge dot showZero>
           <BellOutlined shape="square" sizes="large" />
         </Badge>
       </div>
-    </div>
+       </div>
+   
   )
 }

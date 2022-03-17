@@ -1,19 +1,27 @@
-.sizdmenu_box{
-  width: 300px;
-}
-.sizdmenu_box .ant-layout-sider-children{
-  width: 300px !important;
-  padding-left: 33px;
-  padding-right: 27px;
-}
-.sizemenu {
 
+.sizdmenu .ant-layout-sider .ant-layout-sider-dark .sizemenu{
+  width: 300px !important;
+  max-width: 300px !important;
+  min-width: 300px !important;
+  
+}
+
+.sizemenu {
+  /* max-width: 300px !important;
+  min-width: 300px !important; */
+  width: 300px !important;
   background-color: rgb(232, 235, 238);
   color: black !important;
 }
 .sizemenu div {
-  background-color: white;
+  background-color: rgb(252, 249, 249);
   color: black !important;
+}
+.sizdmenu{
+
+  height: 100%;
+  padding-left: 33px;
+  padding-right: 27px;
 }
 .sizemenu li {
   background-color: white !important;
@@ -103,5 +111,16 @@ color: #070707;
 .logo{
   width:70px ;
   height: 70px;
-  margin: 22px 0px 22px 22px;
+  margin: 22px 0px 73px 22px;
+
 }
+
+/* .menubox{
+  width: 300px !important;
+  
+  background-color: aqua;
+}
+aside{
+  width: 300px !important;
+} */
+

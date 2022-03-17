@@ -63,14 +63,15 @@ export default function SideMenu(props: any) {
     })
   }
   return (
-    <div className='sizdmenu_box'>
+    <>
       {/* <Sider trigger={null} collapsible collapsed={false} className="sizemenu"> */}
 
       {/* </Sider> */}
 
       <Sider
-        breakpoint="lg"
+        breakpoint="xl"
         collapsedWidth="0"
+        width='300'
         onBreakpoint={(broken) => {
           console.log(broken)
         }}
@@ -78,13 +79,15 @@ export default function SideMenu(props: any) {
           console.log(collapsed, type)
         }}
         className="sizemenu"
+        
       >
         <div className='logo'>
           <img src={logoImg} alt="" style={{ width: '100% ' }} />
         </div>
-        <Menu theme="light" mode="inline" defaultSelectedKeys={['3']}>
+        <Menu theme="light" mode="inline" defaultSelectedKeys={['3']} >
           {renderMenu(menuList)}
         </Menu>
+        <div >
         <div className="sizdmenu_div">
           <div className="sizdmenu_div_one">
             <span>
@@ -93,8 +96,8 @@ export default function SideMenu(props: any) {
             <h1>Get premium Now!</h1>
             <Button className="sizdmenubutton"> UPGRADE</Button>
           </div>
-        </div>
+        </div></div>
       </Sider>
-    </div>
+    </>
   )
 }

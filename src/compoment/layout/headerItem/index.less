@@ -1,17 +1,17 @@
 .Topherder {
   width: 100%;
-  height: 3rem;
+  height: 5rem;
   display: flex;
-  // background-color: rgb(126, 123, 123);
+  background-color:white;
   margin-bottom: 2rem;
   // padding-left: 20px;
   display: flex;
   justify-content: space-between;
-  padding:0px 30px 5px 20px;
+  padding:20px 57px 5px 83px;
 
 
   .herder_input {
-    width: 20rem;
+    width: 19rem;
     height: 3rem;
     margin-top: 0.5rem;
     // margin-left: 2rem;
@@ -50,22 +50,7 @@
        border-radius: 10px;
     }
   }
-  .herder_icon {
-    width: 3rem;
-    height: 3rem;
-    // background-color: rgb(236, 197, 203);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 2rem;
-    // color: rgb(241, 139, 139);
-    svg {
-      margin-left: 1rem;
-      width: 1.8rem;
-      height: 1.8rem;
-    }
-  }
+ 
   .herder_waller {
     width: 35rem;
     height: 3rem;
@@ -98,35 +83,49 @@
     }
   }
   .herder_waller_fee {
-    width: 12rem;
+    width:  250px;
     height: 3rem;
+    margin-left: 50px;
     // background-color: yellow;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    .herder_waller_fee_span {
-      width: 3rem;
-      height: 3rem;
-      display: inline-block;
-      border-radius: 50%;
-      background-color: gainsboro;
-      border: 0.1rem solid rgb(160, 13, 13);
-    }
-    .herder_waller_fee_div {
-      //   display: flex;
-      //   flex-direction: column;
-      //   justify-content: center;
-      .wallet_info {
-        display: flex;
-        align-items: center;
-        p {
-          margin: 0;
-          margin-left: 10px;
+    // background-color: #8A2BE1;
+     .herder_waller_fee_div{
+       display: flex;
+       flex-wrap: nowrap;
+       .wallet_info{
+         display: flex;
+     .wallet_avatar{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       
+       svg{
+         margin-left: 0px;
+       }
+     }
+       }
+       p{
+         height: 2rem;
+         line-height: 3rem;
+         margin-left: 16px;
+         margin-right: 50px;
+        
+       } 
+   
+     }  
+       svg {
+          margin-left: 1rem;
+          width: 1.8rem;
+          height: 1.8rem;
         }
-      }
+  }
+  .herder_serach{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 
-
-    }
   }
 }
