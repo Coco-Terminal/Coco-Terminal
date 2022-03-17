@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React ,{useState}from 'react'
+import { Console } from 'console';
+import React ,{useRef, useState}from 'react'
 import './index.css'
 export default function Email() {
-  const [text,settext] = useState()
-  const email=()=>{
-    
-  }
+ 
+  const inputRef = useRef<HTMLInputElement>(null);
+ const email = ()=>{
+console.log(inputRef.current?.value) 
+ }
+  
   return (
     <div className='email'>
       <h1 className='email_h1'>
@@ -18,7 +21,7 @@ export default function Email() {
       </div>
       <div className='email_box'>
            <span className='email_title'>  Email</span>
-           <input placeholder='　　Email' className='email_input' ref={text}/>
+           <input placeholder='　　Email' className='email_input' ref={inputRef}/>
            <button onClick={email}>Save</button>
       </div>
     </div>
