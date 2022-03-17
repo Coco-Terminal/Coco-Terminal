@@ -55,7 +55,6 @@ export default function CalendarDate({
 
   return (
     <div className="NFT_page">
-      <h1>NFt Colender</h1>
       <div className="NFT_page_div">
         <div className="NFT_page_div_date">
           <CaledarTime />
