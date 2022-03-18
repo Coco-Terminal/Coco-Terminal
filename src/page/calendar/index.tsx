@@ -11,7 +11,9 @@ import {
   Layout,
   message,
   Modal,
+  Select,
 } from 'antd'
+import enUS from 'antd/lib/date-picker/locale/en_US'
 
 import {
   GlobalOutlined,
@@ -38,6 +40,8 @@ import {
 } from '../../api/calendar'
 import { useHistory } from 'react-router-dom'
 import { useWeb3React } from '@web3-react/core'
+
+const { Option } = Select
 
 export interface ICalendar {
   projectName: string
@@ -69,6 +73,7 @@ export default function Calendar() {
   const [mintPrice, setMintPrice] = useState<string>()
   const [mintNumberPerWallet, setMintNumberPerWallet] = useState<string>()
   const [date, setDate] = useState<string>()
+  const [timeZone, setTimeZone] = useState<string>()
   const [website, setWebsite] = useState<string>()
   const [discord, setDiscord] = useState<string>()
   const [twitter, setTwitter] = useState<string>()
@@ -133,6 +138,10 @@ export default function Calendar() {
             }}
           >
             <PlusOutlined className="calendar_add_icon" />
+            <p className="calendar_add_title">add new Project</p>
+            <p className="calendar_add_subtitle">
+              Create new project you want to build a list for
+            </p>
           </div>
 
           {calendarList.map((item) => {
@@ -289,14 +298,14 @@ export default function Calendar() {
               autoComplete="off"
               labelAlign="left"
             >
-              <Form.Item label="projectName" name="projectName">
+              <Form.Item label="ProjectName" name="projectName">
                 <Input
                   onChange={(e) => {
                     setProjectName(e.target.value)
                   }}
                 />
               </Form.Item>
-              <Form.Item label="price" name="mintPrice">
+              <Form.Item label="Price" name="mintPrice">
                 <Input
                   onChange={(e) => {
                     setMintPrice(e.target.value)
@@ -304,20 +313,43 @@ export default function Calendar() {
                 />
               </Form.Item>
 
-              <Form.Item label="mintNumber" name="mintNumber">
+              <Form.Item label="MintNumber" name="mintNumber">
                 <Input
                   onChange={(e) => {
                     setMintNumberPerWallet(e.target.value)
                   }}
                 />
               </Form.Item>
-              <Form.Item label="date" name="date">
+              <Form.Item label="Date" name="date">
                 <DatePicker
                   showTime={true}
                   onChange={(e) => {
-                    setDate(e?.valueOf()?.toString())
+                    console.log(new Date().getTimezoneOffset() * 60 * 1000)
+
+                    setDate(
+                      (
+                        (e?.valueOf() ?? 0) +
+                        new Date().getTimezoneOffset() * 60 * 1000
+                      ).toString()
+                    )
                   }}
                 />
+              </Form.Item>
+              <Form.Item label="TimeZone" name="timeZone">
+                {/*  */}
+                <Select
+                  defaultValue="utc"
+                  style={{ width: 120 }}
+                  onChange={(e) => {
+                    console.log(e)
+                    setDate((Number(date) + Number(e)).toString())
+                    setTimeZone(e)
+                  }}
+                >
+                  <Option value="0">UTC</Option>
+                  <Option value="-18000000">EST</Option>
+                  <Option value="-28800000">PST</Option>
+                </Select>
               </Form.Item>
               <Form.Item label="note" name="note">
                 <Input
@@ -333,21 +365,21 @@ export default function Calendar() {
                   }}
                 />
               </Form.Item>
-              <Form.Item label="website" name="website">
+              <Form.Item label="Website" name="website">
                 <Input
                   onChange={(e) => {
                     setWebsite(e.target.value)
                   }}
                 />
               </Form.Item>
-              <Form.Item label="discord" name="discord">
+              <Form.Item label="Discord" name="discord">
                 <Input
                   onChange={(e) => {
                     setDiscord(e.target.value)
                   }}
                 />
               </Form.Item>
-              <Form.Item label="twitter" name="twitter">
+              <Form.Item label="Twitter" name="twitter">
                 <Input.TextArea
                   onChange={(e) => {
                     setTwitter(e.target.value)
@@ -438,7 +470,7 @@ export default function Calendar() {
                 />
               </Form.Item>
               <Form.Item label="note" name="note">
-                <Input
+                <Input.TextArea
                   defaultValue={note}
                   onChange={(e) => {
                     setNote(e.target.value)
@@ -470,7 +502,7 @@ export default function Calendar() {
                 />
               </Form.Item>
               <Form.Item label="twitter" name="twitter">
-                <Input.TextArea
+                <Input
                   defaultValue={twitter}
                   onChange={(e) => {
                     setTwitter(e.target.value)

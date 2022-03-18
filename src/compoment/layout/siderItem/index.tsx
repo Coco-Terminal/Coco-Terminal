@@ -117,7 +117,7 @@ export default function SideMenu(props: any) {
               <span>
                 <ArrowUpOutlined />
               </span>
-              <h1>Get premium Now!</h1>
+              <div className="sizdmenu_title">Get Institutional access!</div>
               <Button className="sizdmenubutton"> UPGRADE</Button>
             </div>
           </div>

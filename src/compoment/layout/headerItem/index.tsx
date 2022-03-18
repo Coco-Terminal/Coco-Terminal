@@ -81,7 +81,7 @@ export default function HeaderItem() {
 
         <div className="herder_button">
           <Button type="primary" block>
-            Get premium Now!
+            Get Institutional access!
           </Button>
         </div>
       </div>

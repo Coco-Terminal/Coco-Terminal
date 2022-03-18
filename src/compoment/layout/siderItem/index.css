@@ -7,7 +7,7 @@
   color: black !important;
 }
 .sizemenu div {
-  background-color: #fff;
+  /* background-color: #fff; */
   color: black !important;
 }
 .ant-menu-sub.ant-menu-inline {
@@ -74,21 +74,15 @@
     #d23de6 28.74%,
     #934de7 72.89%
   );
-  margin-top: -1rem;
+  margin-top: -40px;
   border-radius: 50%;
 }
-.sizdmenu_div_one > h1 {
-  width: 100%;
-  height: 3rem;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
-  text-align: center;
-  text-transform: capitalize;
 
-  color: #070707;
+.sizdmenu_title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  text-align: center;
 }
 .sizdmenubutton {
   width: 160px;
@@ -99,7 +93,7 @@
   color: white;
   font-weight: bold;
   border-radius: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 10px;
   font-size: 24px;
 }
 .logo {
