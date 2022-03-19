@@ -4,40 +4,60 @@ import './index.css'
 
 import { Button } from 'antd'
 import { ArrowUpOutlined } from '@ant-design/icons'
-import logoImg from '../../../assets/logo.png'
 import { HashRouter, Link } from 'react-router-dom'
 
 const { Sider } = Layout
-const { SubMenu } = Menu
 
 //模拟数组结构
 const menuList = [
   {
-    key: '/',
+    key: '#NFT',
     title: 'NFT',
     children: [
       {
-        key: '/trending',
+        url: '#',
+        key: 1,
+        title: 'Watchlist',
+      },
+      {
+        url: '/Calendar',
+        key: 2,
         title: 'Calendar',
       },
       {
-        key: '/trending',
+        url: '/trending',
+        key: 3,
         title: 'Trending',
       },
     ],
   },
-
-  //   {
-  //     key: '/right-manage',
-  //     title: 'Socal',
-
-  //     children: [
-  //       {
-  //         key: '/right-manage/role/list',
-  //         title: ' Forum',
-  //       },
-  //     ],
-  //   },
+  {
+    key: '#Dashboard',
+    title: 'Dashboard',
+    children: [
+      {
+        url: '#',
+        key: 4,
+        title: 'My Wallet',
+      },
+      {
+        url: '#',
+        key: 5,
+        title: 'Token',
+      },
+    ],
+  },
+  {
+    key: '#Social',
+    title: 'Social',
+    children: [
+      {
+        url: '#',
+        key: 6,
+        title: 'Forum',
+      },
+    ],
+  },
 ]
 
 export default function SideMenu(props: any) {
@@ -45,15 +65,23 @@ export default function SideMenu(props: any) {
     return menuList.map((item, index) => {
       if (item.children) {
         return (
-          <SubMenu key={item.key} icon={item.icon} title={item.title}>
-            {renderMenu(item.children)}
-          </SubMenu>
+          <Menu.ItemGroup key={item.key} title={item.title}>
+            {item.children.map((child: any) => {
+              return (
+                <Menu.Item key={child.key}>
+                  <HashRouter>
+                    <Link to={child.url}>{child.title}</Link>
+                  </HashRouter>
+                </Menu.Item>
+              )
+            })}
+          </Menu.ItemGroup>
         )
       }
 
       return (
         <HashRouter>
-          <Menu.Item key={index} icon={item.icon}>
+          <Menu.Item key={item.key} icon={item.icon}>
             <Link to={item.key}>{item.title}</Link>
           </Menu.Item>
         </HashRouter>
@@ -67,7 +95,7 @@ export default function SideMenu(props: any) {
       {/* </Sider> */}
 
       <Sider
-        breakpoint="lg"
+        breakpoint="xl"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
           console.log(broken)
@@ -77,19 +105,21 @@ export default function SideMenu(props: any) {
         }}
         className="sizemenu"
       >
-        <div style={{ width: '5rem ', marginTop: '1rem', margin: '0 auto' }}>
-          <img src={logoImg} alt="" style={{ width: '100% ' }} />
+        <div className="logo">
+          <img src="https://www.theapis.xyz/static/img/apis_logo.png" alt="" />
         </div>
         <Menu theme="light" mode="inline" defaultSelectedKeys={['3']}>
           {renderMenu(menuList)}
         </Menu>
-        <div className="sizdmenu_div">
-          <div className="sizdmenu_div_one">
-            <span>
-              <ArrowUpOutlined />
-            </span>
-            <h1>Get Premlum Now!</h1>
-            <Button className="sizdmenubutton">UFORACK</Button>
+        <div className='upgrade_box'>
+          <div className="sizdmenu_div">
+            <div className="sizdmenu_div_one">
+              <span>
+                <ArrowUpOutlined />
+              </span>
+              <div className="sizdmenu_title">Get Institutional access!</div>
+              <span className="sizdmenubutton"> UPGRADE</span>
+            </div>
           </div>
         </div>
       </Sider>

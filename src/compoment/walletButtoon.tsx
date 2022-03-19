@@ -88,10 +88,10 @@ function ConnectChain(props: { triedEager: any }) {
       disabled={disabled}
       onClick={() => {
         if (!isDisconnect) {
-          if (chainId !== 1) {
-            message.error('wrong network')
-            return
-          }
+          //   if (chainId !== 1) {
+          //     message.error('wrong network')
+          //     return
+          //   }
           setActivatingConnector(injected)
           activate(injected)
         } else {

@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
-import { Calendar, Select, Radio, Col, Row, Typography } from 'antd'
+import { Calendar, Select, Radio, Col, Row, Typography, Button } from 'antd'
 export default function CaledarTime() {
   function onPanelChange(value: any, mode: any) {
     console.log(value, mode)
@@ -31,7 +31,7 @@ export default function CaledarTime() {
                 </Select.Option>
               )
             }
-            const month = value.month()
+            const month = value.month() + 1
 
             const year = value.year()
             const options = []
@@ -42,27 +42,40 @@ export default function CaledarTime() {
                 </Select.Option>
               )
             }
-            const icon = '111'
             return (
               <div className="datetime">
                 <Row className="datetime_one">
-                  <LeftOutlined />
-                  <Col className="datetime_one_one">
-                    <Select
-                      size="small"
-                      dropdownMatchSelectWidth={false}
-                      className="my-year-select"
-                      onChange={(newYear) => {
-                        const now = value.clone().year(Number(newYear))
-                        onChange(now)
-                      }}
-                      value={String('september' + year)}
-                    >
-                      {options}
-                    </Select>
-                  </Col>
+                  <Button
+                    type="text"
+                    ghost
+                    icon={
+                      <LeftOutlined
+                        onClick={() => {
+                          const now = value.clone().month(Number(month - 2))
+                          //   console.log(value.month() + 1)
+                          console.log(now, month)
 
-                  <RightOutlined />
+                          onChange(now)
+                        }}
+                      />
+                    }
+                  />
+                  {year}-{month}
+                  <Button
+                    type="text"
+                    ghost
+                    icon={
+                      <RightOutlined
+                        onClick={() => {
+                          const now = value.clone().month(Number(month))
+                          //   console.log(value.month() + 1)
+                          console.log(now, month)
+
+                          onChange(now)
+                        }}
+                      />
+                    }
+                  />
                 </Row>
               </div>
             )
