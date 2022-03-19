@@ -326,7 +326,6 @@ export default function Trende() {
             <Option value={1}>24h</Option>
             <Option value={2}>7d</Option>
             <Option value={3}>30d</Option>
-            <Option value={4}>all time</Option>
           </Select>
         </div>
         <div>
@@ -348,14 +347,16 @@ export default function Trende() {
           onChange={onChange}
           columns={columns}
           dataSource={listData}
-          scroll={{ x: 1487, y: 460 }}
+          // scroll={{ x: 1487, y: 460 }}
           pagination={false}
+          size='small'
         />
         <Pagination
           showSizeChanger
           onChange={handleChangeRowsPerPage}
           defaultCurrent={1}
           total={count}
+          className='trendingPaginatioon'
         />
       </div>
     </div>

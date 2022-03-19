@@ -63,12 +63,12 @@ export default function CalendarDate({
             <span>{formatTime(new Date().valueOf(), 'Y-M-D H:M')}</span>
           </h3>
           <div className="NFT_page_div_button">
-            <Button>All-NFT Calendar</Button>
+           <span>All-NFT Calendar</span>
           </div>
-
+          <div className='calendar_all_list'>
           {calendarList.map((item, index) => {
             return (
-              <div className="NFT_page_div_lesttime" key={item.date + index}>
+              <div className={`NFT_page_div_lesttime NFT_page_div_lesttime${index}`}  key={item.date + index}>
                 <div>
                   <span></span>
                   <p>{item.date}</p>
@@ -77,6 +77,8 @@ export default function CalendarDate({
               </div>
             )
           })}
+          </div>
+
         </div>
         <div className="NFT_page_div_table">
           <div className="calendar-container">
@@ -88,6 +90,7 @@ export default function CalendarDate({
                 right: 'dayGridMonth,timeGridWeek,timeGridDay',
               }}
               events={calendarList}
+              height={600}
               //   eventReceive={}
               //   dateClick={() => {}}
             />

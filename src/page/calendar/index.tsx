@@ -138,9 +138,9 @@ export default function Calendar() {
             }}
           >
             <PlusOutlined className="calendar_add_icon" />
-            <p className="calendar_add_title">add new Project</p>
+            <p className="calendar_add_title">Add New Project</p>
             <p className="calendar_add_subtitle">
-              Create new project you want to build a list for
+              Create New Project You Want To Build A List For
             </p>
           </div>
 

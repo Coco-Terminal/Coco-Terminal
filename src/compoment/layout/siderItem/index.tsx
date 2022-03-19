@@ -111,14 +111,14 @@ export default function SideMenu(props: any) {
         <Menu theme="light" mode="inline" defaultSelectedKeys={['3']}>
           {renderMenu(menuList)}
         </Menu>
-        <div>
+        <div className='upgrade_box'>
           <div className="sizdmenu_div">
             <div className="sizdmenu_div_one">
               <span>
                 <ArrowUpOutlined />
               </span>
               <div className="sizdmenu_title">Get Institutional access!</div>
-              <Button className="sizdmenubutton"> UPGRADE</Button>
+              <span className="sizdmenubutton"> UPGRADE</span>
             </div>
           </div>
         </div>

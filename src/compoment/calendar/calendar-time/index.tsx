@@ -42,7 +42,6 @@ export default function CaledarTime() {
                 </Select.Option>
               )
             }
-            const icon = '111'
             return (
               <div className="datetime">
                 <Row className="datetime_one">
