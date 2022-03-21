@@ -19,7 +19,7 @@ export default function Calendar() {
       date: 'feb ob ,2022 00:00:00',
       Day: '00',
       Mrs: '000',
-      Min: '000',
+      Min: '000', 
       Sec: '000',
     },
     {
