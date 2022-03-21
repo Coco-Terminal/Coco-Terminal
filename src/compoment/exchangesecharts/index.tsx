@@ -14,7 +14,7 @@ interface IProps {
 }
 const colors = ['#5470C6', '#EE6666'];
 type EChartsOption = echarts.EChartsOption;
-export default class  Firstecharts extends
+export default class  Exchangesecharts extends
 
   PureComponent {
     eChartsRef: any = React.createRef();
@@ -24,30 +24,43 @@ export default class  Firstecharts extends
       myChart.resize()
     }
     let option = {
-        title: {
-          text: 'Current NFT collection Holding',
-          textStyle: { fontSize:36, }
+        title:{
+            
         },
-       
         xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [120, 200, 150, 80, 70, 110, 130],
-              type: 'bar'
+          type: 'category',
+          boundaryGap: false,
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+        
+          {
+            name: 'USD Volume',
+            type: 'line',
+            left:'-20%',
+            stack: 'Total',
+            data: [320, 332, 301, 334, 390, 330, 320],
+            label:{
+                position:"right"
             }
-          ]
+          },
+          {
+            name: 'transactions',
+            type: 'line',
+            // right:'20%',
+            stack: 'Total',
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
+        ]
       };
     
     myChart.setOption(option);
   }
   render() 
-  { return <div className="echarts_Firstechart">
+  { return <div className=" Exchangesecharts">
   <div ref={this.eChartsRef} className="echarts"></div>
   </div>
   ;}

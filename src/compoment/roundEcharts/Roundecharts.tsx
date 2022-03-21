@@ -20,6 +20,9 @@ export default class  Roundecharts extends
     eChartsRef: any = React.createRef();
   componentDidMount() {
     const myChart = eCharts.init(this.eChartsRef.current);
+    window.onresize = function(){
+      myChart.resize()
+    }
     let option = {
       title: {
         text: 'NFT Collection Opensea Volume',

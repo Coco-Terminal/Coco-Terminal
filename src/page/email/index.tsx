@@ -1,14 +1,23 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Console } from 'console';
-import React ,{useRef, useState}from 'react'
+import React ,{useRef, useState,useEffect}from 'react'
 import './index.css'
+import axios from "axios"
 export default function Email() {
- 
+  const [result , setresult] = useState<string |number>()
+ const [emailvalue,setemailvalue] =useState<string | number>()
   const inputRef = useRef<HTMLInputElement>(null);
  const email = ()=>{
-console.log(inputRef.current?.value) 
+// console.log(inputRef.current?.value) 
+setemailvalue(inputRef.current?.value)
  }
-  
+ console.log(emailvalue);
+
+  useEffect (()=>{
+    axios.post('',{Email:emailvalue}).then(res=>{
+      setresult(res.data)
+    })
+  },[emailvalue])
   return (
     <div className='email'>
       <h1 className='email_h1'>
